@@ -1,11 +1,21 @@
 define(['_'], function(_) {
 
+	var setModel = function(model, $scope) {
+		_.each(model, function(value, key) {
+			$scope[key] = value;
+		})
+	}
+
 	var init = function($scope, Faces) {
 		Faces.getRandom().success(function(face) {
-			$scope.faceUrl = 'images/faces/' + face.photo;
-			$scope.face = face;
+			setModel({
+				faceUrl: 'images/faces/' + face.photo,
+				face: face,
+				buttonText: 'Check!',
+				result: 'next',
+				message: 'Gues who?'
+			}, $scope);
   		});
-  		$scope.buttonText = 'Check!';
 	}
 
 	var FaceController = function($scope, Faces) {
@@ -17,9 +27,11 @@ define(['_'], function(_) {
   				init($scope, Faces);
   			} else {
 				Faces.checkName($scope.face, $scope.guess).success(function(resp) {
-					$scope.result = resp.result;
-					$scope.message = resp.message;
-					$scope.buttonText = 'Next';
+					setModel({
+						buttonText: 'Next',
+						result: resp.result,
+						message: resp.message
+					}, $scope);
 		  		});
   			}
   		}

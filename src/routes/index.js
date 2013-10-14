@@ -28,7 +28,8 @@ exports.check = function(req, res){
     Faces.get(req.body._id, function(face) {
         res.send({
         result: 'partial',
-        message: 'Yes, this is ' + face.forename + ' ' + face.surname
+        message: req.body.guess
+        //message: 'Yes, this is ' + face.forename + ' ' + face.surname
       });
     });
 };

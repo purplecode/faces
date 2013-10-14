@@ -9,14 +9,10 @@
 
 
 		<div class="right-panel col-md-4">	
-
-			<div class="alert alert-info" ng-show="!message">
-				Gues who?
-			</div>
 			
 			<div class="alert"
-				 ng-show="message"
 				 ng-class="{
+				    'alert-info': result == 'next',
 					'alert-success': result == 'correct',
 					'alert-danger': result == 'wrong',
 					'alert-warning': result == 'partial'}">
