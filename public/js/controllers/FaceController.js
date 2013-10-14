@@ -13,7 +13,8 @@ define(['_'], function(_) {
 				face: face,
 				buttonText: 'Check!',
 				status: 'next',
-				message: 'Gues who?'
+				message: 'Gues who?',
+				guess: ''
 			}, $scope);
   		});
 	}
