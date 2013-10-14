@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"mongo",
+				"mongodb"
+			],
+			[
+				"random",
+				"randomPhoto"
+			],
+			[
+				"ran",
+				"randomPhoto"
+			],
+			[
+				"phot",
+				"photos"
+			],
+			[
 				"line",
 				"lineWidth"
 			],
@@ -119,51 +135,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 994,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/javascripts/bootstrap.js",
-			"settings":
-			{
-				"buffer_size": 61884,
-				"line_ending": "Unix",
-				"name": "/* ==============================================="
-			}
-		},
-		{
-			"file": "routes/index.js",
-			"settings":
-			{
-				"buffer_size": 110,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/stylesheets/bootstrap.css",
-			"settings":
-			{
-				"buffer_size": 127342,
-				"line_ending": "Unix",
-				"name": "/*!"
-			}
-		},
-		{
-			"contents": "doctype 5\nhtml\n  head\n    title= title\n    link(rel='stylesheet', href='/stylesheets/style.css')\n    link(rel='stylesheet', href='/stylesheets/bootstrap.css')\n    script(src='/javascripts/bootstrap.js')\n  body\n    block content",
-			"file": "views/layout.jade",
-			"file_size": 227,
-			"file_write_time": 1379839001000000,
-			"settings":
-			{
-				"buffer_size": 227,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -193,6 +164,49 @@
 	},
 	"file_history":
 	[
+		"/home/mateusz/workspace/face.db/src/database/entities/Face.js",
+		"/home/mateusz/workspace/face.db/src/database/Faces.js",
+		"/home/mateusz/workspace/face.db/src/routes/index.js",
+		"/home/mateusz/workspace/face.db/src/views/face.twig",
+		"/home/mateusz/workspace/face.db/public/js/controllers.js",
+		"/home/mateusz/workspace/face.db/public/javascripts/js/main.js",
+		"/home/mateusz/workspace/face.db/views/main.twig",
+		"/home/mateusz/workspace/face.db/app.js",
+		"/home/mateusz/workspace/face.db/public/js/main.js",
+		"/home/mateusz/workspace/face.db/public/js/factories/Faces.js",
+		"/home/mateusz/workspace/face.db/public/js/services.js",
+		"/home/mateusz/workspace/face.db/public/js/controllers/FaceController.js",
+		"/home/mateusz/workspace/face.db/index.js",
+		"/home/mateusz/workspace/face.db/views/face.twig",
+		"/home/mateusz/workspace/face.db/public/js/services/Faces.js",
+		"/home/mateusz/workspace/face.db/routes/faces.js",
+		"/home/mateusz/workspace/face.db/src/database/entities/Faces.js",
+		"/home/mateusz/workspace/face.db/src/views/main.twig",
+		"/home/mateusz/workspace/face.db/src/views/navbar.twig",
+		"/home/mateusz/workspace/face.db/src/stylesheets/style.styl",
+		"/home/mateusz/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/mateusz/workspace/face.db/public/styles/style.css",
+		"/home/mateusz/workspace/face.db/routes/users.js",
+		"/home/mateusz/workspace/face.db/routes/index.js",
+		"/home/mateusz/workspace/face.db/public/javascripts/libs/require.js",
+		"/home/mateusz/workspace/face.db/public/libs/javascripts/jquery.js",
+		"/home/mateusz/workspace/face.db/public/libs/javascripts/angular.js",
+		"/home/mateusz/workspace/face.db/public/libs/javascripts/underscore.js",
+		"/home/mateusz/workspace/face.db/public/javascripts/main.js",
+		"/home/mateusz/workspace/face.db/public/libs/stylesheets/style.css",
+		"/home/mateusz/workspace/face.db/views/navbar.twig",
+		"/home/mateusz/workspace/face.db/database/database",
+		"/home/mateusz/workspace/face.db/public/stylesheets/style.css",
+		"/home/mateusz/workspace/face.db/views/stylesheets/style.styl",
+		"/home/mateusz/workspace/face.db/package.json",
+		"/home/mateusz/workspace/face.db/database/Face.js",
+		"/home/mateusz/workspace/face.db/database/database.js",
+		"/home/mateusz/workspace/face.db/src/database/Database.js",
+		"/home/mateusz/workspace/face.db/views/footer.twig",
+		"/home/mateusz/workspace/face.db/public/javascripts/bootstrap.js",
+		"/home/mateusz/workspace/face.db/views/index.hjs",
+		"/home/mateusz/workspace/face.db/views/navbar.hsj",
+		"/home/mateusz/workspace/face.db/views/navbar.hjs",
 		"/home/mateusz/workspace/php.formatter/src/TokenTransformations.php",
 		"/home/mateusz/workspace/php.formatter/test/manual/tmp.php",
 		"/home/mateusz/workspace/php.formatter/test/manual/Beautifier.php",
@@ -250,6 +264,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -257,6 +272,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ObjectId",
+			"stylesheets",
+			"style",
+			"stylesheets",
+			"users",
+			"user",
+			"users",
+			"stylesheets",
+			",",
 			",$",
 			"\\s$",
 			",$",
@@ -326,6 +350,9 @@
 		"regex": true,
 		"replace_history":
 		[
+			"faces",
+			"face",
+			"faces",
 			"",
 			"\\t\\t\\t\\1, // \\2",
 			"\\t\\t\\t\\1,",
@@ -358,142 +385,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app.js",
-					"settings":
-					{
-						"buffer_size": 994,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/javascripts/bootstrap.js",
-					"settings":
-					{
-						"buffer_size": 61884,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								61884,
-								61884
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/* ===============================================",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "routes/index.js",
-					"settings":
-					{
-						"buffer_size": 110,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								102,
-								102
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/stylesheets/bootstrap.css",
-					"settings":
-					{
-						"buffer_size": 127342,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								127092,
-								127092
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/*!",
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "views/layout.jade",
-					"settings":
-					{
-						"buffer_size": 227,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								227,
-								227
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -539,6 +430,10 @@
 		"selected_items":
 		[
 			[
+				"style.",
+				"/home/mateusz/workspace/face.db/public/styles/style.css"
+			],
+			[
 				"conte",
 				"src/Content.php"
 			],
@@ -561,6 +456,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 199.0,
+	"side_bar_width": 238.0,
 	"status_bar_visible": true
 }
