@@ -3,12 +3,12 @@
 
 	<div class="row" >
 
-		<div class="container face col-md-4 col-md-offset-2">
+		<div class="container left-panel col-md-4 col-md-offset-2">
 			<img class="img-rounded" ng-src="[[ faceUrl ]]">
 		</div>
 
 
-		<div class="face-form col-md-4">	
+		<div class="right-panel col-md-4">	
 
 			<div class="alert alert-info" ng-show="!message">
 				Gues who?
@@ -23,11 +23,11 @@
 				[[ message ]]
 			</div>
 
-			<form role="form" ng-submit="checkName()">
+			<form class="face-form" role="form" ng-submit="submit()">
 			  	<div class="input-group">
       				<input type="text" class="form-control" placeholder="Name and/or surname" ng-model="guess">
       				<span class="input-group-btn">
-        				<button class="btn btn-info" type="submit" id="submit">Check!</button>
+        				<button class="btn btn-info" type="submit" id="submit">[[ buttonText ]]</button>
       				</span>
     			</div>
 			</form>

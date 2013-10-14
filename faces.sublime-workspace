@@ -380,6 +380,12 @@
 		"whole_word": false,
 		"wrap": true
 	},
+	"folders":
+	[
+		{
+			"path": "/home/mateusz/workspace/faces"
+		}
+	],
 	"groups":
 	[
 		{
