@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ appName }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/libs/styles/bootstrap.css' />
+    <link rel='stylesheet' href='/libs/styles/bootstrap-theme.css' />
+    <script src="/libs/js/jquery.js"></script>
+    <script src="/libs/js/bootstrap.js"></script>
+    <script data-main="js/main.js" src="/libs/js/require.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/js',
+        paths: {
+          '_': "../libs/js/underscore",
+          'angular': "../libs/js/angular",
+          '$': "../libs/js/jquery",
+        },
+        shim: {
+          '_': { exports: '_' },
+          'angular': { exports: 'angular' },
+          '$': {'exports' : 'jQuery'},
+          'bootstrap': { deps: ['$'] }
+        }
+
+      });
+    </script>
+  </head>
+  <body>
+    {% include 'navbar.twig' %}
+    <div ng-view>
+    </div>
+  </body>
+</html>

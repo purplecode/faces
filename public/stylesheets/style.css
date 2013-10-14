@@ -1,0 +1,18 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+}
+.face {
+  margin-top: 15px;
+  text-align: center;
+}
+.face img {
+  height: 400px;
+}
+.face-form {
+  margin-top: 15px;
+  text-align: center;
+}
