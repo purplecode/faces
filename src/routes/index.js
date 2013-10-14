@@ -24,18 +24,41 @@ exports.random = function(req, res){
 	});
 };
 
-exports.check = function(req, res){
-    Faces.get(req.body._id, function(face) {
-        res.send({
-        result: 'partial',
-        message: req.body.guess
-        //message: 'Yes, this is ' + face.forename + ' ' + face.surname
-      });
-    });
-};
-
 exports.all = function(req, res){
   Faces.getAll(function(faces) {
     res.send(faces);
   });
+};
+
+exports.check = function(req, res){
+
+    var match = function(face, text) {
+      text = text.replace(/\s+/g, ' ');
+      var scoreA = (face.forename + ' ' + face.surname).toLowerCase().score(text.toLowerCase());
+      var scoreB = (face.surname + ' ' + face.forename).toLowerCase().score(text.toLowerCase());
+      return Math.max(scoreA, scoreB);
+    };
+
+    Faces.get(req.body._id, function(face) {
+
+        var score = match(face, req.body.guess);
+
+        if(score == 1.0) {
+          res.send({
+            status: 'correct',
+            message: 'Yes, this is ' + face.forename + ' ' + face.surname
+          });
+        } else if(score > 0.7) {
+          res.send({
+            status: 'partial',
+            message: 'Almost correct, it is ' + face.forename + ' ' + face.surname
+          });
+        } else {
+          res.send({
+            status: 'wrong',
+            message: 'No, it is ' + face.forename + ' ' + face.surname
+          });
+        }
+
+    });
 };

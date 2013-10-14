@@ -12,7 +12,7 @@ define(['_'], function(_) {
 				faceUrl: 'images/faces/' + face.photo,
 				face: face,
 				buttonText: 'Check!',
-				result: 'next',
+				status: 'next',
 				message: 'Gues who?'
 			}, $scope);
   		});
@@ -29,7 +29,7 @@ define(['_'], function(_) {
 				Faces.checkName($scope.face, $scope.guess).success(function(resp) {
 					setModel({
 						buttonText: 'Next',
-						result: resp.result,
+						status: resp.status,
 						message: resp.message
 					}, $scope);
 		  		});
