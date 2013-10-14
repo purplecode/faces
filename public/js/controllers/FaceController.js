@@ -9,7 +9,7 @@ define(['_'], function(_) {
 	var init = function($scope, Faces) {
 		Faces.getRandom().success(function(face) {
 			setModel({
-				faceUrl: 'images/faces/' + face.photo,
+				faceImg: 'data:image/gif;base64,' + face.photo,
 				face: face,
 				buttonText: 'Check!',
 				status: 'next',

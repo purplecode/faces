@@ -10,7 +10,7 @@ a {
   text-align: center;
 }
 .left-panel img {
-  height: 400px;
+  width: 100%;
 }
 .right-panel {
   margin-top: 15px;

@@ -4,6 +4,13 @@
  */
 
 var Faces = require('../database/Faces.js');
+var fs = require('fs');
+
+var getImg64 = function(file, callback) {
+  fs.readFile(file, function(err, data) {
+   callback(new Buffer(data).toString('base64'));
+});
+}
 
 exports.template = function(req, res){
 	var path = req.params;
@@ -17,10 +24,12 @@ exports.index = function(req, res){
 exports.random = function(req, res){
 	Faces.getRandom(function(face) {
 		var randomPhoto = face.photos[Math.floor(Math.random()*face.photos.length)];
-  		res.send({
-  			photo: randomPhoto,
-  			_id: face._id
-  		});
+    getImg64('public/images/faces/'+randomPhoto, function(img64) {
+      res.send({
+        _id: face._id,
+        photo: img64
+      });
+    });
 	});
 };
 
@@ -41,7 +50,7 @@ exports.check = function(req, res){
 
     Faces.get(req.body._id, function(face) {
 
-        var score = match(face, req.body.guess);
+        var score = match(face, req.body.guess || '');
 
         if(score == 1.0) {
           res.send({
