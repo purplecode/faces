@@ -18,16 +18,16 @@
 					'alert-warning': status == 'partial'}">
 				[[ message ]]
 			</div>
-			[[ hint ]]
 
 			<form class="face-form" role="form" ng-submit="submit()">
 			  	<div class="input-group">
-      				<input type="text" class="form-control" placeholder="Name and/or surname" ng-model="guess">
+      				<input type="text" class="form-control" placeholder="Name and/or surname" ng-model="guess", name="guess", ng-minlength="1" required>
       				<span class="input-group-btn">
         				<button class="btn btn-info" type="submit" id="submit">[[ buttonText ]]</button>
       				</span>
     			</div>
 			</form>
+
 	</div>
 
 </div>

@@ -1,6 +1,6 @@
 
 var settings = {
-	appName : 'NetEng faces'
+	appName : 'Faces'
 };
 
 
