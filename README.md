@@ -2,7 +2,7 @@
 
 Start recognizing people with whom you are working or studing with.
 
-Application facilitates learning people's faces, combining their names and surnames with their appearence.
+Application facilitates learning people's faces, combining their names and surnames with their photos.
 It originates from the corporate environment, in which, after 3 years of working, 
 I barely remembered some of my colleagues names.
 
