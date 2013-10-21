@@ -8,10 +8,11 @@ define(['_'], function(_) {
         	return $http.get('faces/random');
         },
 
-        checkName: function(face, guess) {
+        checkName: function(face, guess, trial) {
           	return $http.post('faces/check', {
         		_id: face._id,
-        		guess: guess
+        		guess: guess,
+            trial: trial
         	});
         }
 

@@ -14,9 +14,29 @@ define(['_'], function(_) {
 				buttonText: 'Check!',
 				status: 'next',
 				message: 'Gues who?',
-				guess: ''
+				guess: '',
+				trial: 1,
+				hint: ''
 			}, $scope);
   		});
+	}
+
+	var processResponse = function($scope, resp) {
+		if(resp.status === 'wrong' && $scope.trial < 3) {
+			setModel({
+				buttonText: 'Repeat',
+				status: resp.status,
+				message: resp.message,
+				hint: resp.hint,
+				trial: $scope.trial+1
+			}, $scope);
+		} else {
+			setModel({
+				buttonText: 'Next',
+				status: resp.status,
+				message: resp.message
+			}, $scope);
+		}
 	}
 
 	var FaceController = function($scope, Faces) {
@@ -27,12 +47,8 @@ define(['_'], function(_) {
   			if($scope.buttonText === 'Next') {
   				init($scope, Faces);
   			} else {
-				Faces.checkName($scope.face, $scope.guess).success(function(resp) {
-					setModel({
-						buttonText: 'Next',
-						status: resp.status,
-						message: resp.message
-					}, $scope);
+				Faces.checkName($scope.face, $scope.guess, $scope.trial).success(function(resp) {
+					processResponse($scope, resp);
 		  		});
   			}
   		}
