@@ -3,8 +3,11 @@
  * GET home page.
  */
 
-var Faces = require('../database/Faces.js');
 var fs = require('fs');
+var Faces = require('../database/Faces.js');
+var stringUtils = require('../js/utils/StringUtils.js');
+var settings = require('../../settings.js');
+
 
 var getImg64 = function(file, callback) {
   fs.readFile(file, function(err, data) {
@@ -18,7 +21,7 @@ exports.template = function(req, res){
 };
 
 exports.index = function(req, res){
-  	res.render('main', { appName: 'Faces'});
+  	res.render('main', { appName: settings.appName});
 };
 
 exports.random = function(req, res){
@@ -42,9 +45,11 @@ exports.all = function(req, res){
 exports.check = function(req, res){
 
     var match = function(face, text) {
-      text = text.replace(/\s+/g, ' ');
-      var scoreA = (face.forename + ' ' + face.surname).toLowerCase().score(text.toLowerCase());
-      var scoreB = (face.surname + ' ' + face.forename).toLowerCase().score(text.toLowerCase());
+      text = text.replace(/\s+/g, ' ').toLowerCase();
+      text = stringUtils.latinize(text);
+      console.log(text);
+      var scoreA = (face.forename + ' ' + face.surname).toLowerCase().score(text);
+      var scoreB = (face.surname + ' ' + face.forename).toLowerCase().score(text);
       return Math.max(scoreA, scoreB);
     };
 
