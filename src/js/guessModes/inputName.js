@@ -1,8 +1,8 @@
 var _ = require('underscore');
-var stringUtils = require('../utils/StringUtils.js');
+var stringUtils = require('../utils/StringUtils');
 
 exports.questionData = function(face, callback) {
-  callback(_.omit(face, 'forename', 'surename'));
+  callback('inputName', _.omit(face, 'forename', 'surename'));
 };
 
 exports.guess = function(face, input, callback) {

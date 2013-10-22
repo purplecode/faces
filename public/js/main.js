@@ -25,6 +25,7 @@ function($, angular, controllers, services, directives) {
     app.config(['$interpolateProvider', interpolateProvider]);
 
 		app.factory('Faces', services.Faces);
+    app.factory('GuessModes', services.GuessModes);
 
     app.directive('focusOn', directives.focusOn);
 

@@ -1,5 +1,5 @@
 var fs = require('fs');
-var Faces = require('../database/Faces.js');
+var Faces = require('../database/Faces');
 
 var getImg64 = function(file, callback) {
   fs.readFile(file, function(err, data) {
@@ -21,14 +21,17 @@ exports.random = function(req, res){
     return Math.floor(Math.random()*n);
   };
   
-  Faces.getRandom(function(face) {
+  Faces.getRandom(1, function(faces) {
+    var face = faces[0];
     var randomPhoto = face.photos[random(face.photos.length)];
     getImg64('public/images/faces/'+randomPhoto, function(img64) {
-      guessMode.questionData(face, function(faceData){
+      guessMode.questionData(face, function(mode, faceData, extraData){
         res.send({
           _id: face._id,
           photo: img64,
-          face: faceData
+          mode: mode,
+          face: faceData,
+          extras: extraData
         });
       });
     });

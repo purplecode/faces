@@ -3,17 +3,16 @@ var ObjectID = require('mongodb').ObjectID;
 
 var faces = {};
 
-faces.getRandom = function(callback){
+faces.getRandom = function(howMany, callback){
   Face.count({}, function(err, count) {
       if (!count) {
         console.error("Couldn't find any faces in collection.");
         callback({});
       }
       var shift = Math.floor(Math.random()*count);
-      var promise = Face.find().skip(shift).limit(1).exec();
+      var promise = Face.find().skip(shift).limit(howMany).exec();
       promise.addBack(function (err, docs) {
-        var ddoc = docs[0];
-        callback(ddoc);
+        callback(docs);
       });
   });
 };

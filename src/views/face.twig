@@ -20,7 +20,7 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
               </button>
             </div>
-            <div ng-show="guessMode=='name'">
+            <div ng-show="guessMode=='inputName'">
               <form class="face-form" role="form" ng-submit="submit()">
                   <div class="form-group" ng-class="{
                   'has-success': status == 'correct',
@@ -45,7 +45,7 @@
                   </div>
               </form>
             </div>
-            <div ng-show="guessMode!='name'">
+            <div ng-show="guessMode!='inputName'">
               <h1 class="no-top-margin">[[ face.forename ]] [[ face.surname ]]</h1>
             </div>
 
