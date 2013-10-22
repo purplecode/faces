@@ -60,14 +60,14 @@ exports.check = function(req, res){
     var createCorrectResponse = function(face) {
       return {
         status: 'correct',
-        message: 'Yes, this is ' + face.forename + ' ' + face.surname
+        face: face
       };
     };
 
     var createPartialResponse = function(face) {
       return {
         status: 'partial',
-        message: 'Almost correct, it is ' + face.forename + ' ' + face.surname
+        face: face
       };
     };
 
@@ -77,15 +77,15 @@ exports.check = function(req, res){
       var responses = {
         1: {
           status: 'wrong',
-          message: 'No, ' + hintVersion + ' starts with "'+face[hintVersion][0]+'"'
+          hint: 'No, ' + hintVersion + ' starts with "'+face[hintVersion][0]+'"'
         },
         2: {
           status: 'wrong',
-          message: 'Wrong, ' + hintVersion + ' is "'+face[hintVersion]+'"'
+          hint: 'Wrong, ' + hintVersion + ' is "'+face[hintVersion]+'"'
         },
         3: {
           status: 'wrong',
-          message: 'No, it is ' + face.forename + ' ' + face.surname
+          face: face
         }
       };
 

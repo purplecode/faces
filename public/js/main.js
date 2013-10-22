@@ -1,6 +1,6 @@
-require(['$', 'angular', 'controllers', 'services'],
+require(['$', 'angular', 'controllers', 'services', 'directives'],
 
-function($, angular, controllers, services) {
+function($, angular, controllers, services, directives) {
 	"use strict";
 	
      angular.element(document).ready(function () {
@@ -26,6 +26,8 @@ function($, angular, controllers, services) {
 
 		app.factory('Faces', services.Faces);
 
-    	angular.bootstrap(document , ['main']);
-  	});
+    app.directive('focusOn', directives.focusOn);
+
+    angular.bootstrap(document , ['main']);
+  });
 });

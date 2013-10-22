@@ -2,23 +2,22 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-a {
-  color: #00b7ff;
-}
 .navbar img {
-  height: 50px;
+  height: 60px;
+}
+.container {
+  margin-top: 80px;
 }
 .left-panel {
-  margin-top: 15px;
-  text-align: center;
+  text-align: right;
 }
 .left-panel img {
-  width: 100%;
+  max-width: 300px;
+  max-height: 400px;
 }
 .right-panel {
-  margin-top: 15px;
-  text-align: center;
+  text-align: left;
 }
-.face-form button {
-  width: 70px;
+.no-top-margin {
+  margin-top: 0;
 }

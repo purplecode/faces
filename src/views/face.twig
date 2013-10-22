@@ -1,33 +1,63 @@
 <!DOCTYPE html>
-<div>
-
+<div class="container">
 	<div class="row" >
 
-		<div class="container left-panel col-md-4 col-md-offset-2">
-			<img class="img-rounded" ng-src="[[ faceImg ]]" >
-		</div>
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel-body">
+        <div class="row">
 
+          <div class="left-panel col-md-4">
+            <img class="img-rounded" ng-src="[[ faceImg ]]" >
+          </div>
 
-		<div class="right-panel col-md-4">	
-			
-			<div class="alert"
-				 ng-class="{
-				    'alert-info': status == 'next',
-					'alert-success': status == 'correct',
-					'alert-danger': status == 'wrong',
-					'alert-warning': status == 'partial'}">
-				[[ message ]]
-			</div>
+          <div class="right-panel col-md-8">  
+            <div ng-show="isFinished">
+              <button class="btn btn-success pull-right" ng-click="next()" focus-on="isFinished">
+                Next person
+                <span ng-show="nextTimeout>0">
+                  ([[nextTimeout]])
+                </span>
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </button>
+            </div>
+            <div ng-show="guessMode=='name'">
+              <form class="face-form" role="form" ng-submit="submit()">
+                  <div class="form-group" ng-class="{
+                  'has-success': status == 'correct',
+                  'has-error': status == 'wrong',
+                  'has-warning': status == 'partial'}">
+                        <input ng-hide="isFinished" 
+                          placeholder="Name and/or surname"
+                          type="text" class="input-lg form-control"  
+                          ng-model="guess" name="guess" 
+                          ng-minlength="5" focus-on="!isFinished">
 
-			<form class="face-form" role="form" ng-submit="submit()">
-			  	<div class="input-group">
-      				<input type="text" class="form-control" placeholder="Name and/or surname" ng-model="guess", name="guess", ng-minlength="1" required>
-      				<span class="input-group-btn">
-        				<button class="btn btn-info" type="submit" id="submit">[[ buttonText ]]</button>
-      				</span>
-    			</div>
-			</form>
+                        <h1 ng-show="isFinished" class="no-top-margin"
+                          ng-class="{
+                            'text-danger': status == 'wrong',
+                            'text-warning': status == 'partial'
+                          }">
+                          [[ face.forename ]] [[ face.surname ]]
+                        </h1>
+                        <span class="help-block">
+                          [[ hint ]]
+                        </span>
+                  </div>
+              </form>
+            </div>
+            <div ng-show="guessMode!='name'">
+              <h1 class="no-top-margin">[[ face.forename ]] [[ face.surname ]]</h1>
+            </div>
 
-	</div>
+            <h2>[[ face.title ]]</h2>
+            <p></p>
+            <h3 ng-show="face.phoneNumber">Phone number: [[ face.phoneNumber ]]</h3>
+            <h3 ng-show="face.website"><a ng-href="face.website">[[ face.website ]]</a></h3>
+            <p ng-show="face.about">About: [[face.about]]</p>
+ 
+        </div>
 
+        </div>
+      </div>
+    </div>
 </div>
