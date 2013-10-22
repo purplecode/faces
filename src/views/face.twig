@@ -50,11 +50,12 @@
             </div>
 
             <h2>[[ face.title ]]</h2>
-            <p></p>
             <h3 ng-show="face.phoneNumber">Phone number: [[ face.phoneNumber ]]</h3>
-            <h3 ng-show="face.website"><a ng-href="face.website">[[ face.website ]]</a></h3>
+            <p></p>
+            <h4 ng-show="face.skills">Skills: [[ face.skills ]]</h4>
+            <h4 ng-show="face.projects">Projects: [[ face.projects ]]</h4>
+            <h4 ng-show="face.website"><a ng-href="[[face.website]]">[[ face.website ]]</a></h4>
             <p ng-show="face.about">About: [[face.about]]</p>
- 
         </div>
 
         </div>

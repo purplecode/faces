@@ -10,7 +10,7 @@ define(['_'], function(_) {
 		Faces.getRandom().success(function(face) {
 			setModel({
 				faceImg: 'data:image/gif;base64,' + face.photo,
-				face: face,
+				face: face.face,
 				initing: false,
 				isFinished: false,
 				status: 'next',

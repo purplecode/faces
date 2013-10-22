@@ -4,6 +4,7 @@
  */
 
 var fs = require('fs');
+var _ = require('underscore');
 var Faces = require('../database/Faces.js');
 var stringUtils = require('../js/utils/StringUtils.js');
 var settings = require('../../settings.js');
@@ -34,7 +35,8 @@ exports.random = function(req, res){
     getImg64('public/images/faces/'+randomPhoto, function(img64) {
       res.send({
         _id: face._id,
-        photo: img64
+        photo: img64,
+        face: _.omit(face, 'forename', 'surname')
       });
     });
 	});

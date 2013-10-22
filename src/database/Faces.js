@@ -12,7 +12,8 @@ faces.getRandom = function(callback){
       var shift = Math.floor(Math.random()*count);
       var promise = Face.find().skip(shift).limit(1).exec();
       promise.addBack(function (err, docs) {
-        callback(docs[0]);
+        var ddoc = docs[0];
+        callback(ddoc);
       });
   });
 };
