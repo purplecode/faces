@@ -29,3 +29,11 @@ body {
 .choosePhoto button {
   width: 45%;
 }
+.inputName input.col-lg-8 {
+  width: 66.66666666%;
+}
+.inputName button.col-lg-4 {
+  width: 33.33333333%;
+  height: 66px;
+  border-radius: 0 6px 6px 0;
+}

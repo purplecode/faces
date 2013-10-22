@@ -42,12 +42,13 @@
                   'has-warning': status == 'partial'}">
                         <!-- Input option -->
                         <div ng-hide="isFinished">
-                          <div ng-show="guessMode=='inputName'">
+                          <div ng-show="guessMode=='inputName'" class="input-group input-group-lg inputName col-lg-12">
                               <input
                                 placeholder="Name and/or surname"
-                                type="text" class="input-lg form-control"  
+                                type="text" class="input-lg form-control col-lg-8"  
                                 ng-model="guess" name="guess" 
                                 ng-minlength="5" focus-on="!isFinished">
+                              <button class="btn btn-lg btn-info col-lg-4">Check!</button>
                           </div>
                           <div ng-show="guessMode=='chooseName'" class="chooseName">
                             <button class="btn btn-info" ng-repeat="option in chooseNameOptions" ng-click="submit($event, option)">
