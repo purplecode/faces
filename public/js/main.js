@@ -1,17 +1,17 @@
-require(['$', 'angular', 'controllers', 'services'],
+require(['$', 'angular', 'controllers', 'services', 'directives'],
 
-function($, angular, controllers, services) {
+function($, angular, controllers, services, directives) {
 	"use strict";
 	
      angular.element(document).ready(function () {
 
 		var routing = function($routeProvider) {
 			$routeProvider.
-    		when('/face', {
-    			templateUrl: 'template/face',
-    			controller: controllers.FaceController
-    		}).
-    		otherwise({redirectTo: '/face'});
+        when('/face', {
+          templateUrl: 'template/face',
+          controller: controllers.FaceController
+        }).
+        otherwise({redirectTo: '/face'});
 		};
 
     var interpolateProvider = function ($interpolateProvider) {
@@ -25,7 +25,10 @@ function($, angular, controllers, services) {
     app.config(['$interpolateProvider', interpolateProvider]);
 
 		app.factory('Faces', services.Faces);
+    app.factory('GuessModes', services.GuessModes);
 
-    	angular.bootstrap(document , ['main']);
-  	});
+    app.directive('focusOn', directives.focusOn);
+
+    angular.bootstrap(document , ['main']);
+  });
 });

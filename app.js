@@ -41,12 +41,14 @@ database.connect('faces');
 /**
 * Routing
 */
-var routes = require('./src/routes')
+var mainRoutes = require('./src/routes')
+var facesRoutes = require('./src/routes/faces');
 
-app.get('/', routes.index);
-app.get('/template/*', routes.template);
-app.get('/faces/random', routes.random);
-app.post('/faces/check', routes.check);
+app.get('/', mainRoutes.index);
+app.get('/template/*', mainRoutes.template);
+
+app.get('/faces/random', facesRoutes.random);
+app.post('/faces/check', facesRoutes.check);
 
 /**
 * Start

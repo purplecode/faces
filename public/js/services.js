@@ -1,10 +1,11 @@
 define(
-['services/Faces'],
+['services/Faces', 'services/GuessModes'],
 
-function(Faces) {
+function(Faces, GuessModes) {
     "use strict";
 
     return {
-        Faces: Faces
+        Faces: Faces,
+        GuessModes: GuessModes
     };
 });

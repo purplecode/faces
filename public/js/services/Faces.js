@@ -5,15 +5,13 @@ define(['_'], function(_) {
       return {
         
         getRandom: function() {
-        	return $http.get('faces/random');
+          return $http.get('faces/random');
         },
 
-        checkName: function(face, guess, trial) {
-          	return $http.post('faces/check', {
-        		_id: face._id,
-        		guess: guess,
-            trial: trial
-        	});
+        checkName: function(face, mode, data) {
+          data._id = face._id;
+          data.mode = mode;
+          return $http.post('faces/check', data);
         }
 
       };

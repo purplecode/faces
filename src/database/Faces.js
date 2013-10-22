@@ -1,14 +1,18 @@
 var Face = require('./entities/Face.js');
-var ObjectID = require('mongodb').ObjectID
+var ObjectID = require('mongodb').ObjectID;
 
 var faces = {};
 
-faces.getRandom = function(callback){
+faces.getRandom = function(howMany, callback){
   Face.count({}, function(err, count) {
+      if (!count) {
+        console.error("Couldn't find any faces in collection.");
+        callback({});
+      }
       var shift = Math.floor(Math.random()*count);
-      var promise = Face.find().skip(shift).limit(1).exec();
+      var promise = Face.find().skip(shift).limit(howMany).exec();
       promise.addBack(function (err, docs) {
-        callback(docs[0]);
+        callback(docs);
       });
   });
 };
@@ -26,6 +30,11 @@ faces.getAll = function(callback){
 	promise.addBack(function (err, docs) {
 		callback(docs);
 	});
+};
+
+faces.getRandomPhotoPath = function(face) {
+  var randomPhoto = 'public/images/faces/' + face.photos[Math.floor(Math.random() * face.photos.length)];
+  return randomPhoto;
 };
 
 
