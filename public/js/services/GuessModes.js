@@ -80,6 +80,28 @@ define(['_'], function(_) {
         return true;
       }
     };
+  },
+
+  choosePhoto: function($scope) {
+    var setModel = setModelForScope.bind(this, $scope);
+
+    return {
+      name: 'choosePhoto',
+      init: function(extraData) {
+        setModel({
+          status: 'next',
+          choosePhotoOptions: extraData
+        });
+      },
+      getSubmitData: function(photoId) {
+        return {
+          answer: photoId
+        };
+      },
+      isFinished: function(resp) {
+        return true;
+      }
+    };
   }
 
  };

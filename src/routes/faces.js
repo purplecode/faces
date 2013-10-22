@@ -1,11 +1,5 @@
-var fs = require('fs');
+var FileUtils = require('../js/utils/FileUtils');
 var Faces = require('../database/Faces');
-
-var getImg64 = function(file, callback) {
-  fs.readFile(file, function(err, data) {
-     callback(new Buffer(data).toString('base64'));
-  });
-};
 
 exports.all = function(req, res){
   Faces.getAll(function(faces) {
@@ -23,14 +17,14 @@ exports.random = function(req, res){
     return Math.floor(Math.random()*n);
   };
 
-  var modes = ['chooseName', 'inputName'];
+  var modes = ['chooseName', 'inputName', 'choosePhoto'];
   
   var guessMode = getGuessMode(modes[random(modes.length)]);
   
   Faces.getRandom(1, function(faces) {
     var face = faces[0];
-    var randomPhoto = face.photos[random(face.photos.length)];
-    getImg64('public/images/faces/'+randomPhoto, function(img64) {
+    var randomPhoto = Faces.getRandomPhotoPath(face);
+    FileUtils.getImgBase64(randomPhoto, function(img64) {
       guessMode.questionData(face, function(mode, faceData, extraData){
         res.send({
           _id: face._id,

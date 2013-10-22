@@ -32,5 +32,10 @@ faces.getAll = function(callback){
 	});
 };
 
+faces.getRandomPhotoPath = function(face) {
+  var randomPhoto = 'public/images/faces/' + face.photos[Math.floor(Math.random() * face.photos.length)];
+  return randomPhoto;
+};
+
 
 module.exports = faces;

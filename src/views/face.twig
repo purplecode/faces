@@ -7,7 +7,22 @@
         <div class="row">
 
           <div class="left-panel col-md-4">
-            <img class="img-rounded" ng-src="[[ faceImg ]]" >
+            <div ng-show="guessMode=='choosePhoto'">
+              <div class="choosePhoto" ng-show="!isFinished"> 
+                <button class="btn btn-info" ng-repeat="face in choosePhotoOptions" ng-click="submit($event, face._id)">
+                  <img class="img-rounded" height="92" ng-src="[[ face.photo ]]" />
+                </button>
+              </div>
+              <button ng-show="isFinished" class="btn" ng-class="{
+              'btn-danger': status == 'wrong',
+              'btn-success': status == 'correct'
+            }">
+                <img class="img-rounded" ng-src="[[ faceImg ]]" >
+              </button>
+            </div>
+            <div ng-show="guessMode!='choosePhoto'">
+              <img class="img-rounded" ng-src="[[ faceImg ]]" >
+            </div>
           </div>
 
           <div class="right-panel col-md-8">  
@@ -20,7 +35,7 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
               </button>
             </div>
-            <form class="face-form" role="form" ng-submit="submit()">
+            <form class="face-form" role="form" ng-submit="submit()" ng-show="guessMode.indexOf('Name') > 0">
                   <div class="form-group" ng-class="{
                   'has-success': status == 'correct',
                   'has-error': status == 'wrong',
@@ -42,7 +57,7 @@
                         </div>
 
                         <!-- Display correct option -->
-                        <h1 ng-show="isFinished" class="no-top-margin"
+                        <h1 ng-show="isFinished &amp;&amp; guessMode.indexOf('Name') > 0" class="no-top-margin"
                           ng-class="{
                             'text-danger': status == 'wrong',
                             'text-warning': status == 'partial'
@@ -53,9 +68,8 @@
                           [[ hint ]]
                         </span>
                   </div>
-              </form>
-            </div>
-            <div ng-show="!(guessMode=='inputName' || guessMode =='chooseName')">
+            </form>
+            <div ng-show="guessMode.indexOf('Name') == -1">
               <h1 class="no-top-margin">[[ face.forename ]] [[ face.surname ]]</h1>
             </div>
 
@@ -66,9 +80,9 @@
             <h4 ng-show="face.projects">Projects: [[ face.projects ]]</h4>
             <h4 ng-show="face.website"><a ng-href="[[face.website]]">[[ face.website ]]</a></h4>
             <p ng-show="face.about">About: [[face.about]]</p>
-        </div>
-
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
