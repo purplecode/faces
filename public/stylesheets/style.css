@@ -22,5 +22,6 @@ body {
   margin-top: 0;
 }
 .chooseName button {
-  margin: 8px;
+  margin: 0 10px 10px 0;
+  width: 40%;
 }
