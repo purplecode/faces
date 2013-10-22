@@ -20,18 +20,28 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
               </button>
             </div>
-            <div ng-show="guessMode=='inputName'">
-              <form class="face-form" role="form" ng-submit="submit()">
+            <form class="face-form" role="form" ng-submit="submit()">
                   <div class="form-group" ng-class="{
                   'has-success': status == 'correct',
                   'has-error': status == 'wrong',
                   'has-warning': status == 'partial'}">
-                        <input ng-hide="isFinished" 
-                          placeholder="Name and/or surname"
-                          type="text" class="input-lg form-control"  
-                          ng-model="guess" name="guess" 
-                          ng-minlength="5" focus-on="!isFinished">
+                        <!-- Input option -->
+                        <div ng-hide="isFinished">
+                          <div ng-show="guessMode=='inputName'">
+                              <input
+                                placeholder="Name and/or surname"
+                                type="text" class="input-lg form-control"  
+                                ng-model="guess" name="guess" 
+                                ng-minlength="5" focus-on="!isFinished">
+                          </div>
+                          <div ng-show="guessMode=='chooseName'" class="chooseName">
+                            <button class="btn btn-info" ng-repeat="option in chooseNameOptions" ng-click="submit($event, option)">
+                              [[ option ]]
+                            </buton>
+                          </div>
+                        </div>
 
+                        <!-- Display correct option -->
                         <h1 ng-show="isFinished" class="no-top-margin"
                           ng-class="{
                             'text-danger': status == 'wrong',
@@ -45,7 +55,7 @@
                   </div>
               </form>
             </div>
-            <div ng-show="guessMode!='inputName'">
+            <div ng-show="!(guessMode=='inputName' || guessMode =='chooseName')">
               <h1 class="no-top-margin">[[ face.forename ]] [[ face.surname ]]</h1>
             </div>
 

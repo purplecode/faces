@@ -21,12 +21,14 @@ exports.guess = function(face, input, callback) {
     if (getFullname(face) === input.answer) {
       callback({
         status: 'correct',
-        face: face
+        face: face,
+        answer: input.answer
       });
     } else {
       callback({
         status: 'wrong',
-        face: face
+        face: face,
+        answer: input.answer
       });  
     }
 

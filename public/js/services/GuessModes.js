@@ -8,21 +8,22 @@ define(['_'], function(_) {
     });
   };
 
+  var getFinalHint = function(status, yourAnswer) {
+    if (status === 'partial') {
+      return 'Almost correct. You wrote: ' + yourAnswer;
+    } else if (status === 'wrong') {
+      return 'Wrong. You wrote: ' + yourAnswer;
+    }
+    return '';
+  };
+
  var ModesFactory = {
 
   inputName: function($scope) {
     var setModel = setModelForScope.bind(this, $scope);
 
-    var getFinalHint = function(status) {
-      if (status === 'partial') {
-        return 'Almost correct. You wrote: ' + $scope.guess;
-      } else if (status === 'wrong') {
-        return 'Wrong. You wrote: ' + $scope.guess;
-      }
-      return '';
-    };
-
     return {
+      name: 'inputName',
       init: function() {
         setModel({
           status: 'next',
@@ -48,13 +49,39 @@ define(['_'], function(_) {
 
         setModel({
           message: '',
-          hint: getFinalHint(resp.status),
+          hint: getFinalHint(resp.status, $scope.guess),
+        });
+        return true;
+      }
+    };
+  },
+
+  chooseName: function($scope) {
+    var setModel = setModelForScope.bind(this, $scope);
+
+    return {
+      name: 'chooseName',
+      init: function(extraData) {
+        setModel({
+          hint: '',
+          status: 'next',
+          chooseNameOptions: extraData
+        });
+      },
+      getSubmitData: function(name) {
+        return {
+          answer: name
+        };
+      },
+      isFinished: function(resp) {
+        setModel({
+          hint: getFinalHint(resp.status, resp.answer),
         });
         return true;
       }
     };
   }
-  
+
  };
 
   var GuessModes = function() {

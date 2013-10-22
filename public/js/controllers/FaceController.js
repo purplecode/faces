@@ -18,7 +18,7 @@ define(['_'], function(_) {
 
 			// Initialize guessmode
 			guessMode = GuessModes.getMode(face.mode, $scope);
-			guessMode.init();
+			guessMode.init(face.extras);
 		});
 	};
 
@@ -51,8 +51,12 @@ define(['_'], function(_) {
 
 		$scope.next();
 
-		$scope.submit = function() {
-			Faces.checkName($scope.face, guessMode.getSubmitData()).success(function(resp) {
+		$scope.submit = function(ev, data) {
+			if (ev) {
+				ev.preventDefault();
+			}
+
+			Faces.checkName($scope.face, guessMode.name, guessMode.getSubmitData(data)).success(function(resp) {
 				setModel({
 					status: resp.status
 				}, $scope);
@@ -65,6 +69,7 @@ define(['_'], function(_) {
 					nextTimeout(5);
 				}
 			});
+			return false;
 		};
 	};
 	return FaceController;
