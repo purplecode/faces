@@ -1,6 +1,12 @@
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" ng-controller="NavbarController">
   <a class="nav pull-left" href="https://github.com/purplecode"><img src="images/purplecode.png"/></a>
   <div class="navbar-header">
     <a class="navbar-brand" href="#">{{ appName }}</a>
   </div>
+  <ul class="nav navbar-nav most-regognizable navbar-right ng-cloak">
+    <li><a>Most recognizable:</a></li>
+    <li ng-repeat="face in popularFaces">
+      <img ng-src="[[face.face.photo]]" alt="[[ face.face.forename ]] [[ face.face.surname]]"  height="50"/>
+    </li>
+  </ul>
 </nav>

@@ -1,8 +1,11 @@
 var _ = require('underscore');
+var Logs = require('../../database/Logs');
 var stringUtils = require('../utils/StringUtils');
 
 exports.questionData = function(face, callback) {
-  callback('inputName', _.omit(face, 'forename', 'surename'));
+  var f = _.omit(face.toObject(), 'forename', 'surname', 'photos');
+  console.log(f);
+  callback('inputName', f);
 };
 
 exports.guess = function(face, input, callback) {
@@ -32,7 +35,7 @@ exports.guess = function(face, input, callback) {
 
     var createWrongResponse = function(face, guess, trial) {
 
-      var hintVersion = Math.random() < 0.3 ? 'forename' : 'surname';
+      var hintVersion = Math.random() < 0.5 ? 'forename' : 'surname';
       var responses = {
         1: {
           status: 'wrong',
@@ -51,14 +54,21 @@ exports.guess = function(face, input, callback) {
       return responses[trial];
     };
 
+    var log = function(isOk) {
+      Logs.log(face._id, input.guess, isOk);
+    };
+
     var score = match(face, input.guess || '');
     var response;
     if(score == 1.0) {
       response = createCorrectResponse(face);
+      log(true);
     } else if(score > 0.7) {
       response = createPartialResponse(face);
+      log(true);
     } else {
       response = createWrongResponse(face, input.guess, input.trial);
+      log(false);
     }
     callback(response);
     

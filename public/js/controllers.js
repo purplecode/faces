@@ -1,10 +1,11 @@
 define(
-['controllers/FaceController'],
+['controllers/FaceController', 'controllers/NavbarController'],
 
-function(FaceController) {
+function(FaceController, NavbarController) {
     "use strict";
 
     return {
-        FaceController: FaceController
+        FaceController: FaceController,
+        NavbarController: NavbarController
     };
 });

@@ -43,12 +43,14 @@ database.connect('faces');
 */
 var mainRoutes = require('./src/routes')
 var facesRoutes = require('./src/routes/faces');
+var statsRoutes = require('./src/routes/stats')
 
 app.get('/', mainRoutes.index);
 app.get('/template/*', mainRoutes.template);
 
 app.get('/faces/random', facesRoutes.random);
 app.post('/faces/check', facesRoutes.check);
+app.get('/faces/popular', statsRoutes.getMostRecognizable);
 
 /**
 * Start
