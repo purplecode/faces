@@ -3,7 +3,9 @@ var Logs = require('../../database/Logs');
 var stringUtils = require('../utils/StringUtils');
 
 exports.questionData = function(face, callback) {
-  callback('inputName', _.omit(face, 'forename', 'surename'));
+  var f = _.omit(face.toObject(), 'forename', 'surname', 'photos');
+  console.log(f);
+  callback('inputName', f);
 };
 
 exports.guess = function(face, input, callback) {

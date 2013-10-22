@@ -12,6 +12,10 @@ define(['_'], function(_) {
           data._id = face._id;
           data.mode = mode;
           return $http.post('faces/check', data);
+        },
+
+        getPopular: function() {
+          return $http.get('faces/popular');
         }
 
       };

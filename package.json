@@ -12,7 +12,8 @@
     "mongodb": "*",
     "mongoose": "*",
     "underscore": "*",
-    "string_score": "*"
+    "string_score": "*",
+    "q": "~0.9.7"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

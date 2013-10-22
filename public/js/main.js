@@ -24,6 +24,8 @@ function($, angular, controllers, services, directives) {
     app.config(['$routeProvider', routing]);
     app.config(['$interpolateProvider', interpolateProvider]);
 
+    app.controller('NavbarController', controllers.NavbarController);
+
 		app.factory('Faces', services.Faces);
     app.factory('GuessModes', services.GuessModes);
 

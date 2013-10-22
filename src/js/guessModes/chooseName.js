@@ -8,7 +8,7 @@ var getFullname = function(face) {
 };
 
 exports.questionData = function(originalFace, callback) {
-  var face = _.omit(originalFace, 'forename', 'surname');
+  var face = _.omit(originalFace.toObject(), 'forename', 'surname', 'photos');
   // Find some additional random names in database
   Faces.getRandom(3, function(faces){
     var namesToChoose = [originalFace].concat(faces).map(getFullname);
