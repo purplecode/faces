@@ -1,5 +1,5 @@
 var Face = require('./entities/Face.js');
-var ObjectID = require('mongodb').ObjectID
+var ObjectID = require('mongodb').ObjectID;
 
 var faces = {};
 

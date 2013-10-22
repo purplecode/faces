@@ -7,11 +7,11 @@ function($, angular, controllers, services, directives) {
 
 		var routing = function($routeProvider) {
 			$routeProvider.
-    		when('/face', {
-    			templateUrl: 'template/face',
-    			controller: controllers.FaceController
-    		}).
-    		otherwise({redirectTo: '/face'});
+        when('/face', {
+          templateUrl: 'template/face',
+          controller: controllers.FaceController
+        }).
+        otherwise({redirectTo: '/face'});
 		};
 
     var interpolateProvider = function ($interpolateProvider) {

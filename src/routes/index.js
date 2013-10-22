@@ -11,5 +11,5 @@ exports.template = function(req, res){
 };
 
 exports.index = function(req, res){
-  	res.render('main', { appName: settings.appName});
+  res.render('main', { appName: settings.appName});
 };

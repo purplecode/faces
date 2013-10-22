@@ -3,8 +3,8 @@ define(['_'], function(_) {
 	var setModel = function(model, $scope) {
 		_.each(model, function(value, key) {
 			$scope[key] = value;
-		})
-	}
+		});
+	};
 
 	var init = function($scope, Faces) {
 		Faces.getRandom().success(function(face) {
@@ -18,8 +18,8 @@ define(['_'], function(_) {
 				hint: '',
 				trial: 1
 			}, $scope);
-  		});
-	}
+		});
+	};
 
 	var getFinalHint = function($scope, status) {
 		if (status === 'partial') {
@@ -86,7 +86,7 @@ define(['_'], function(_) {
 		$scope.submit = function() {
 			Faces.checkName($scope.face, $scope.guess, $scope.trial).success(function(resp) {
 				processResponse(resp);
-	  	});
+			});
 		};
 	};
 	return FaceController;
