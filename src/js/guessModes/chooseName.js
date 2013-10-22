@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var Logs = require('../../database/Logs');
 var Faces = require('../../database/Faces');
 var stringUtils = require('../utils/StringUtils');
 
@@ -18,7 +19,10 @@ exports.questionData = function(originalFace, callback) {
 
 exports.guess = function(face, input, callback) {
 
-    if (getFullname(face) === input.answer) {
+    var isOk = getFullname(face) === input.answer;
+    Logs.log(face._id, input.answer, isOk);
+    
+    if (isOk) {
       callback({
         status: 'correct',
         face: face,
