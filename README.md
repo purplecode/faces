@@ -18,6 +18,8 @@ Add the following sample data to `faces` database (can be changed in `app.js`)
 ```
 db.faces.insert({ "forename" : "Maka", "surname" : "Paka", "photos" : [  "maka-paka.jpg" ]});
 db.faces.insert({ "forename" : "Igi", "surname" : "Pigiel", "photos" : [  "igi-pigiel.jpg" ]});
+db.faces.insert({ "forename" : "Pinky", "surname" : "Ponk", "photos" : [  "pinky-ponk.jpg" ]});
+db.faces.insert({ "forename" : "Ninky", "surname" : "Nonk", "photos" : [  "ninky-nonk.jpg" ]});
 ```
 
 Run
