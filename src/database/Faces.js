@@ -1,20 +1,32 @@
+var ChainBuilder = require('../js/utils/ChainBuilder');
 var Face = require('./entities/Face.js');
 var ObjectID = require('mongodb').ObjectID;
+var _ = require('underscore');
 
-var faces = {};
 
-faces.getRandom = function(howMany, callback){
+var getRandomDocument = function(callback){
   Face.count({}, function(err, count) {
       if (!count) {
         console.error("Couldn't find any faces in collection.");
         callback({});
       }
       var shift = Math.floor(Math.random()*count);
-      var promise = Face.find().skip(shift).limit(howMany).exec();
+      var promise = Face.find().skip(shift).limit(1).exec();
       promise.addBack(function (err, docs) {
-        callback(docs);
+        callback(docs[0]);
       });
   });
+};
+
+var faces = {};
+
+faces.getRandom = function(howMany, callback){
+  var builder = new ChainBuilder();
+  _(howMany).times(function(){ 
+    builder.addFunction(getRandomDocument); 
+  });
+  builder.addCallback(callback);
+  builder.exec();
 };
 
 faces.get = function(id, callback){

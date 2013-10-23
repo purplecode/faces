@@ -18,7 +18,7 @@ exports.random = function(req, res){
   };
 
   var modes = ['chooseName', 'inputName', 'choosePhoto'];
-  
+
   var guessMode = getGuessMode(modes[random(modes.length)]);
   
   Faces.getRandom(1, function(faces) {

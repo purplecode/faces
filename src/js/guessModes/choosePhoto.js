@@ -26,18 +26,19 @@ var hashId = function(id) {
 
 exports.questionData = function(originalFace, callback) {
   var face = _.omit(originalFace, 'photos', '_id');
+
   // Find some additional random names in database
   Faces.getRandom(3, function(faces) {
     var waitForAll = waitForAllCallback(4, function(results){
-
       callback('choosePhoto', face, _.shuffle(results));
     });
-
     //add callback to all faces
     [originalFace].concat(faces).forEach(function(f){
-      FileUtils.getImgBase64(Faces.getRandomPhotoPath(f), function(data){
+      var photo = Faces.getRandomPhotoPath(f);
+      console.log("get:"+photo);
+      FileUtils.getImgBase64(photo, function(data){
         //don't store id in plain form, hashit
-
+        console.log("wait:"+photo);
         waitForAll({
           _id: hashId(f._id),
           photo: data
