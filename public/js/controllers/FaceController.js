@@ -7,6 +7,7 @@ define(['_'], function(_) {
 	};
 
 	var init = function($scope, Faces, GuessModes) {
+		$scope.initing = true;
 		Faces.getRandom().success(function(face) {
 			setModel({
 				faceImg: face.photo,
@@ -27,12 +28,12 @@ define(['_'], function(_) {
 	var FaceController = function($scope, $timeout, Faces, GuessModes) {
 
 		var nextTimeout = function(count) {
-			if (!$scope.isFinished) {
+			if (!$scope.isFinished || $scope.initing) {
 				return;
 			}
 			$scope.nextTimeout = count;
 			if (count === 0) {
-				$scope.next();
+				init($scope, Faces, GuessModes);
 			} else {
 				$timeout(function(){
 					nextTimeout(count - 1);
@@ -41,12 +42,9 @@ define(['_'], function(_) {
 		};
 
 		$scope.next = function() {
-			//don trigger that multiple times
-			if ($scope.initing) {
-				return;
+			if (!$scope.initing) {
+				init($scope, Faces, GuessModes);
 			}
-			$scope.initing = true;
-			init($scope, Faces, GuessModes);
 		};
 
 		$scope.next();
