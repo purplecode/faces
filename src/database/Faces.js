@@ -22,9 +22,7 @@ var faces = {};
 
 faces.getRandom = function(howMany, callback){
   var builder = new ChainBuilder();
-  _(howMany).times(function(){ 
-    builder.addFunction(getRandomDocument); 
-  });
+  builder.addFunction(getRandomDocument, howMany); 
   builder.addCallback(callback);
   builder.exec();
 };

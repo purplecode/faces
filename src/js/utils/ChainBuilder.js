@@ -11,8 +11,11 @@ ChainBuilder.prototype = {
 	functions: null,
 	callbacks: null,
 
-	addFunction: function(f) {
-		this.functions.push(f);
+	addFunction: function(f, n) {
+		n = n || 1
+		_(n).times(function(){ 
+    		this.functions.push(f);
+  		}, this);
 	},
 
 	addCallback: function(c) {
