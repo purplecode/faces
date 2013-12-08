@@ -31,3 +31,14 @@ node app.js
 Open `http://localhost:3000` in your browser.
 
 Enjoy!
+
+## Screenshots
+
+![](https://raw.github.com/purplecode/faces/master/doc/input.jpg)
+**************************
+![](https://raw.github.com/purplecode/faces/master/doc/texts.jpg)
+**************************
+![](https://raw.github.com/purplecode/faces/master/doc/pictures.jpg)
+**************************
+
+
