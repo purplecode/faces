@@ -1,9 +1,8 @@
 'use strict';
-import app from './appModule';
+import appModule from './appModule';
 import './styles.css!';
-import angular from 'angular';
 
-app.controller('appController', function($scope){
+appModule.controller('appController', function($scope){
 
   $scope.test = "test"
 
