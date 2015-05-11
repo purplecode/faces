@@ -32,6 +32,7 @@ app.use('/', routes);
 var facesRoutes = require('./server/routes/faces');
 var statsRoutes = require('./server/routes/stats')
 
+app.get('/faces/all', facesRoutes.all);
 app.get('/faces/random', facesRoutes.random);
 app.post('/faces/check', facesRoutes.check);
 app.get('/faces/popular', statsRoutes.getMostRecognizable);

@@ -17,33 +17,28 @@ var getRandomDocument = function(){
   });
 };
 
-var faces = {};
+var Faces = {};
 
-faces.getRandom = function(howMany){
+Faces.getRandom = function(howMany){
   var promises = _.times(howMany || 1, function() {
     return getRandomDocument()
   });
   return q.all(promises);
 };
 
-faces.get = function(id, callback){
+Faces.get = function(id){
   var query = Face.find({_id: new ObjectID(id)});
-  query.findOne(function (err, doc) {
-      callback(doc);
-  });
+  var findOne = q.denodeify(query.findOne.bind(query));
+  return findOne();
 };
 
-
-faces.getAll = function(callback){
-	var promise = Face.find().exec();
-	promise.addBack(function (err, docs) {
-		callback(docs);
-	});
+Faces.getAll = function(){
+	return Face.find().exec();
 };
 
-faces.getRandomPhotoPath = function(face) {
+Faces.getRandomPhotoPath = function(face) {
   return 'public/images/faces/' + face.photos[Math.floor(Math.random() * face.photos.length)];
 };
 
 
-module.exports = faces;
+module.exports = Faces;

@@ -7,7 +7,7 @@ var FileUtils = require('../utils/FileUtils');
 
 var getFacePromise = function(faceId) {
   var deferred = Q.defer();
-  Faces.get(faceId, function(face){
+  Faces.get(faceId).then(function(face){
     var photo = Faces.getRandomPhotoPath(face);
     FileUtils.getImgBase64(photo).then(function(photo){
       var newFace = face.toObject();

@@ -2,19 +2,18 @@ var FileUtils = require('../utils/FileUtils');
 var Faces = require('../database/Faces');
 
 exports.all = function(req, res){
-  Faces.getAll(function(faces) {
+  Faces.getAll().then(function(faces) {
     res.send(faces);
   });
-};
-
-
-var getGuessMode = function(modeName) {
-  return require('../guessModes/'+modeName);
 };
 
 exports.random = function(req, res){
   var random = function(n) {
     return Math.floor(Math.random()*n);
+  };
+
+  var getGuessMode = function(modeName) {
+    return require('../guessModes/'+modeName);
   };
 
   var modes = ['chooseName', 'inputName', 'choosePhoto'];
@@ -39,7 +38,7 @@ exports.random = function(req, res){
 };
 
 exports.check = function(req, res){
-  Faces.get(req.body._id, function(face){
+  Faces.get(req.body._id).then(function(face){
     var guessMode = getGuessMode(req.body.mode);
     guessMode.guess(face, req.body, function(response){
       res.send(response);
