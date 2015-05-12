@@ -1,3 +1,5 @@
+require("string_score");
+
 var _ = require('lodash');
 var Logs = require('../database/Logs');
 var stringUtils = require('../utils/StringUtils');

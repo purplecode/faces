@@ -27,7 +27,8 @@
     "mongoose": "^4.0.2",
     "morgan": "~1.5.1",
     "q": "^1.4.0",
-    "serve-favicon": "~2.2.0"
+    "serve-favicon": "~2.2.0",
+    "string_score": "^0.1.22"
   },
   "devDependencies": {
     "jspm": "^0.15.6"

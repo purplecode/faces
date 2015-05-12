@@ -22,6 +22,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.2.17",
     "core-js": "npm:core-js@0.9.7",
     "css": "github:systemjs/plugin-css@0.1.10",
+    "joshaven/string_score": "github:joshaven/string_score@0.1.22",
     "lodash": "npm:lodash@3.8.0",
     "text": "github:systemjs/plugin-text@0.0.2",
     "github:angular-ui/ui-router@0.2.14": {
