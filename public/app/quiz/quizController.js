@@ -1,15 +1,9 @@
 "use strict";
 import quizModule from './module';
 
-class QuizController {
-  constructor($scope) {
+quizModule.controller('quizController', ($scope, $timeout) => {
+
+  $scope.test = "asasasasas";
 
 
-
-
-
-  }
-}
-
-quizModule.controller('quizController', QuizController);
-
+});
