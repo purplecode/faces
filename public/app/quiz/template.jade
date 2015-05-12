@@ -1,1 +1,49 @@
-div {{test}}
+.container
+  .row
+    .col-lg-10.col-lg-offset-1
+      .panel-body
+        .row
+          .left-panel.col-md-4
+
+            div(ng-show="guessMode=='choosePhoto'")
+              .choosePhoto(ng-show='!isFinished')
+                button.btn.btn-info(ng-repeat='face in choosePhotoOptions track by $index', ng-click='submit($event, face._id)')
+                  img.img-rounded(height='92', ng-src='{{ face.photo }}')
+              button.btn(ng-show='isFinished', ng-class="{'btn-danger': status == 'wrong','btn-success': status == 'correct'}")
+                img.img-rounded(ng-src='{{ faceImg }}')
+
+            div(ng-show="guessMode!='choosePhoto'")
+              img.img-rounded(ng-src='{{ faceImg }}')
+          .right-panel.col-md-8
+            div(ng-show='isFinished')
+              button.btn.btn-success.pull-right(ng-click='next()', focus-on='isFinished')
+                | Next person
+                span(ng-show='nextTimeout>0')
+                  | ({{nextTimeout}})
+                span.glyphicon.glyphicon-chevron-right
+            form.face-form(role='form', ng-submit='submit()', ng-show="guessMode.indexOf('Name') > 0")
+              .form-group(ng-class="{'has-success': status == 'correct', 'has-error': status == 'wrong', 'has-warning': status == 'partial'}")
+                // Input option
+                div(ng-hide='isFinished')
+                  .input-group.input-group-lg.inputName.col-lg-12(ng-show="guessMode=='inputName'")
+                    input.input-lg.form-control.col-lg-8(placeholder='Name and/or surname', type='text', ng-model='guess', name='guess', ng-minlength='5', focus-on='!isFinished')
+                    button.btn.btn-lg.btn-info.col-lg-4 Check!
+                  .chooseName(ng-show="guessMode=='chooseName'")
+                    button.btn.btn-info(ng-repeat='option in chooseNameOptions track by $index', ng-click='submit($event, option)')
+                      | {{ option }}
+                // Display correct option
+                h1.no-top-margin(ng-show="isFinished && guessMode.indexOf('Name') > 0", ng-class="{'text-danger': status == 'wrong', 'text-warning': status == 'partial'}")
+                  | {{ face.forename }} {{ face.surname }}
+                span.help-block
+                  | {{ hint }}
+            div(ng-show="guessMode.indexOf('Name') == -1")
+              h1.no-top-margin {{ face.forename }} {{ face.surname }}
+            h2 {{ face.title }}
+            h3(ng-show='face.phoneNumber') Phone number: {{ face.phoneNumber }}
+            p
+            h4(ng-show='face.skills') Skills: {{ face.skills }}
+            h4(ng-show='face.projects') Projects: {{ face.projects }}
+            h4(ng-show='face.website')
+              a(ng-href='{{face.website}}') {{ face.website }}
+            p(ng-show='face.about') About: {{face.about}}
+      

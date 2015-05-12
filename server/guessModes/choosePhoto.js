@@ -15,7 +15,7 @@ exports.questionData = function (originalFace, callback) {
       return FileUtils.getImgBase64(Faces.getRandomPhotoPath(face));
     });
     return q.all(promises).then(function (images) {
-      var models = _.map(function (image, idx) {
+      var models = _.map(images, function (image, idx) {
         return {
           _id: hashId(faces[idx]._id),
           photo: image

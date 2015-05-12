@@ -1,6 +1,10 @@
 var FileUtils = require('../utils/FileUtils');
 var Faces = require('../database/Faces');
 
+var getGuessMode = function(modeName) {
+  return require('../guessModes/'+modeName);
+};
+
 exports.all = function(req, res){
   Faces.getAll().then(function(faces) {
     res.send(faces);
@@ -12,11 +16,8 @@ exports.random = function(req, res){
     return Math.floor(Math.random()*n);
   };
 
-  var getGuessMode = function(modeName) {
-    return require('../guessModes/'+modeName);
-  };
-
-  var modes = ['chooseName', 'inputName', 'choosePhoto'];
+  //var modes = ['chooseName', 'inputName', 'choosePhoto'];
+  var modes = ['chooseName'];
 
   var guessMode = getGuessMode(modes[random(modes.length)]);
 
