@@ -20,6 +20,7 @@ System.config({
     "angular-ui-router": "github:angular-ui/ui-router@0.2.14",
     "babel": "npm:babel-core@5.2.17",
     "babel-runtime": "npm:babel-runtime@5.2.17",
+    "bootstrap": "github:twbs/bootstrap@3.3.4",
     "core-js": "npm:core-js@0.9.7",
     "css": "github:systemjs/plugin-css@0.1.10",
     "joshaven/string_score": "github:joshaven/string_score@0.1.22",
@@ -70,6 +71,9 @@ System.config({
       "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "github:twbs/bootstrap@3.3.4": {
+      "jquery": "github:components/jquery@2.1.4"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
