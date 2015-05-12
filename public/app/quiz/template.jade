@@ -13,11 +13,7 @@
               input-name-question
 
           .right-panel.col-md-8
-            div(ng-show='isFinished')
-              button.btn.btn-success.pull-right(ng-click='next()', focus-on='isFinished')
-                | Next person
-                span(ng-show='nextTimeout > 0') ({{nextTimeout}})
-                span.glyphicon.glyphicon-chevron-right
+            next-question(is-finished="isFinished", action="next()" timeout="nextTimeout")
 
             div(ng-show="guessMode=='choosePhoto'")
               choose-photo-answer
