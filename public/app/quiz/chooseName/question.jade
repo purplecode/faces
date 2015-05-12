@@ -1,0 +1,5 @@
+img.img-rounded(ng-src='{{ faceImg }}')
+div(ng-hide='isFinished')
+    .chooseName
+        button.btn.btn-info(ng-repeat='option in chooseNameOptions track by $index', ng-click='submit($event, option)')
+            | {{ option }}

@@ -1,0 +1,12 @@
+form.face-form(role='form', ng-submit='submit()')
+    .form-group(ng-class="{'has-success': status == 'correct', 'has-error': status == 'wrong', 'has-warning': status == 'partial'}")
+        div(ng-hide='isFinished')
+            .chooseName
+                button.btn.btn-info(ng-repeat='option in chooseNameOptions track by $index', ng-click='submit($event, option)')
+                    | {{ option }}
+        h1.no-top-margin(ng-show="isFinished", ng-class="{'text-danger': status == 'wrong', 'text-warning': status == 'partial'}")
+            | {{ face.forename }} {{ face.surname }}
+        span.help-block
+            | {{ hint }}
+div(ng-show="guessMode.indexOf('Name') == -1")
+    h1.no-top-margin {{ face.forename }} {{ face.surname }}

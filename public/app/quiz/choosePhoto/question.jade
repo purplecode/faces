@@ -1,0 +1,5 @@
+.choosePhoto(ng-show='!isFinished')
+    button.btn.btn-info(ng-repeat='face in choosePhotoOptions track by $index', ng-click='submit($event, face._id)')
+        img.img-rounded(height='92', ng-src='{{ face.photo }}')
+button.btn(ng-show='isFinished', ng-class="{'btn-danger': status == 'wrong','btn-success': status == 'correct'}")
+    img.img-rounded(ng-src='{{ faceImg }}')
