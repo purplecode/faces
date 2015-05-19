@@ -2,9 +2,11 @@ form.face-form(role='form', ng-submit='submit()')
     .form-group(ng-class="{'has-success': status == 'correct', 'has-error': status == 'wrong', 'has-warning': status == 'partial'}")
         // Input option
         div(ng-hide='isFinished')
-            .input-group.input-group-lg.inputName.col-lg-12(ng-show="guessMode=='inputName'")
+            .input-group.input-group-lg.inputName.col-lg-12
                 input.input-lg.form-control.col-lg-8(placeholder='Name and/or surname', type='text', ng-model='guess', name='guess', ng-minlength='5', focus-on='!isFinished')
-                button.btn.btn-lg.btn-info.col-lg-4 Check!
+                span.input-group-btn
+                    button.btn.btn-lg.btn-info Check!
+
         h1.no-top-margin(ng-show="isFinished", ng-class="{'text-danger': status == 'wrong', 'text-warning': status == 'partial'}")
             | {{ face.forename }} {{ face.surname }}
         span.help-block
