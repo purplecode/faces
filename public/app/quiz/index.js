@@ -2,6 +2,7 @@
 import quizController from './quizController';
 
 import nextQuestionDirective from './nextQuestion/nextQuestionDirective'
+import faceInfoDirective from './faceInfo/faceInfoDirective'
 
 import choosePhotoQuestion from './choosePhoto/choosePhotoQuestion'
 import chooseNameQuestion from './chooseName/chooseNameQuestion'

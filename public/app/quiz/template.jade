@@ -1,10 +1,8 @@
-.container
-  .row
+.row
     .col-lg-10.col-lg-offset-1
       .panel-body
-        .row
-
-          .left-panel.col-md-4
+        .row.quiz
+          .left-panel.col-md-6
             div(ng-show="guessMode=='choosePhoto'")
               choose-photo-question
             div(ng-show="guessMode=='chooseName'")
@@ -12,7 +10,7 @@
             div(ng-show="guessMode=='inputName'")
               input-name-question
 
-          .right-panel.col-md-8
+          .right-panel.col-md-6
             next-question(is-finished="isFinished", action="next()" timeout="nextTimeout")
 
             div(ng-show="guessMode=='choosePhoto'")
@@ -22,12 +20,4 @@
             div(ng-show="guessMode=='inputName'")
               input-name-answer
 
-            h2 {{ face.title }}
-            h3(ng-show='face.phoneNumber') Phone number: {{ face.phoneNumber }}
-            p
-            h4(ng-show='face.skills') Skills: {{ face.skills }}
-            h4(ng-show='face.projects') Projects: {{ face.projects }}
-            h4(ng-show='face.website')
-              a(ng-href='{{face.website}}') {{ face.website }}
-            p(ng-show='face.about') About: {{face.about}}
-      
+            face-info(face="face")

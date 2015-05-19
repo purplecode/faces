@@ -1,6 +1,7 @@
 "use strict";
 import _ from 'lodash';
 import quizModule from './module';
+import './styles.css!';
 
 var setModel = function(model, $scope) {
   _.each(model, function(value, key) {
