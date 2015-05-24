@@ -73,5 +73,11 @@ quizModule.controller('quizController', ($scope, $timeout, Faces, GuessModes) =>
     return false;
   };
 
+  $scope.$on('keypress:13', () => {
+      if($scope.isFinished) {
+        $scope.next();
+      }
+  });
+
 
 });

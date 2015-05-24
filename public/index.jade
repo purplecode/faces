@@ -3,7 +3,7 @@ html
     head
         title Faces
         link(rel="stylesheet" href="./jspm_packages/github/twbs/bootstrap@3.3.4/css/bootstrap.min.css")
-    body(ng-controller="appController")
+    body(ng-controller="appController" keypress-bindings)
         block content
             div(ui-view)
         script(src='jspm_packages/system.js')

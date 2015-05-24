@@ -1,5 +1,6 @@
 'use strict';
 import './routes';
+import './utils';
 import angular from 'angular';
 import appModule from './appModule';
 
