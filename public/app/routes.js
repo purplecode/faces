@@ -1,6 +1,5 @@
 'use strict';
 import appModule from './appModule';
-import 'angular-ui-router';
 import './appController';
 
 import quizTemplate from './quiz/template.html!text';

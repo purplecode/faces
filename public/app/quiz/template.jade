@@ -11,14 +11,14 @@
               input-name-question
 
           .right-panel.col-md-6
-
-            div(ng-show="guessMode=='choosePhoto'")
-              choose-photo-answer
-            div(ng-show="guessMode=='chooseName'")
-              choose-name-answer
-            div(ng-show="guessMode=='inputName'")
-              input-name-answer
+            .answers.row
+                div(ng-show="guessMode=='choosePhoto'")
+                  choose-photo-answer
+                div(ng-show="guessMode=='chooseName'")
+                  choose-name-answer
+                div(ng-show="guessMode=='inputName'")
+                  input-name-answer
 
             face-info(face="face")
 
-            next-question.pull-left(is-finished="isFinished", action="next()" timeout="nextTimeout")
+            next-question.pull-right(is-finished="isFinished", action="next()" timeout="nextTimeout")

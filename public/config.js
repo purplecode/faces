@@ -17,17 +17,30 @@ System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
+    "angular-material": "github:angular/bower-material@0.9.4",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.14",
     "babel": "npm:babel-core@5.2.17",
     "babel-runtime": "npm:babel-runtime@5.2.17",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "core-js": "npm:core-js@0.9.7",
-    "css": "github:systemjs/plugin-css@0.1.10",
+    "css": "github:systemjs/plugin-css@0.1.11",
     "joshaven/string_score": "github:joshaven/string_score@0.1.22",
     "lodash": "npm:lodash@3.8.0",
     "text": "github:systemjs/plugin-text@0.0.2",
     "github:angular-ui/ui-router@0.2.14": {
       "angular": "github:angular/bower-angular@1.3.15"
+    },
+    "github:angular/bower-angular-animate@1.3.15": {
+      "angular": "github:angular/bower-angular@1.3.15"
+    },
+    "github:angular/bower-angular-aria@1.3.15": {
+      "angular": "github:angular/bower-angular@1.3.15"
+    },
+    "github:angular/bower-material@0.9.4": {
+      "angular": "github:angular/bower-angular@1.3.15",
+      "angular-animate": "github:angular/bower-angular-animate@1.3.15",
+      "angular-aria": "github:angular/bower-angular-aria@1.3.15",
+      "css": "github:systemjs/plugin-css@0.1.11"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -67,7 +80,7 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
-    "github:systemjs/plugin-css@0.1.10": {
+    "github:systemjs/plugin-css@0.1.11": {
       "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
