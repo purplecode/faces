@@ -1,24 +1,21 @@
-.row
-    .col-lg-10.col-lg-offset-1
-      .panel-body
-        .row.quiz
-          .left-panel.col-md-6
-            div(ng-show="guessMode=='choosePhoto'")
-              choose-photo-question
-            div(ng-show="guessMode=='chooseName'")
-              choose-name-question
-            div(ng-show="guessMode=='inputName'")
-              input-name-question
+.quiz(layout="row")
+  .left-panel(flex="50")
+    div(ng-show="guessMode=='choosePhoto'")
+      choose-photo-question
+    div(ng-show="guessMode=='chooseName'")
+      choose-name-question
+    div(ng-show="guessMode=='inputName'")
+      input-name-question
+  div(flex="5")
+  .right-panel(flex="45")
+    .answers.row
+        div(ng-show="guessMode=='choosePhoto'")
+          choose-photo-answer
+        div(ng-show="guessMode=='chooseName'")
+          choose-name-answer
+        div(ng-show="guessMode=='inputName'")
+          input-name-answer
 
-          .right-panel.col-md-6
-            .answers.row
-                div(ng-show="guessMode=='choosePhoto'")
-                  choose-photo-answer
-                div(ng-show="guessMode=='chooseName'")
-                  choose-name-answer
-                div(ng-show="guessMode=='inputName'")
-                  input-name-answer
+    face-info(face="face")
 
-            face-info(face="face")
-
-            next-question.pull-right(is-finished="isFinished", action="next()" timeout="nextTimeout")
+    next-question.pull-right(is-finished="isFinished", action="next()" timeout="nextTimeout")

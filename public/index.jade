@@ -4,9 +4,21 @@ html
         title Faces
         link(rel="stylesheet" href="./jspm_packages/github/twbs/bootstrap@3.3.4/css/bootstrap.min.css")
         link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@0.9.4/angular-material.css")
-    body(ng-controller="appController" keypress-bindings)
-        block content
-            div(ui-view)
+    body(ng-controller="appController" layout="row" keypress-bindings)
+        div(layout="column" layout-fill)
+            md-toolbar
+                .md-toolbar-tools
+                    h3 Faces
+                    md-button(ui-sref='quiz') Quiz
+                    md-button(ui-sref='face') Search
+                    span(flex)
+                    .input-group
+                        input(type="text" class="form-control" placeholder="Search...")
+                        .input-group-btn
+                            button.btn.btn-default
+                                .glyphicon.glyphicon-search
+            md-content
+                div.container(ui-view)
         script(src='jspm_packages/system.js')
         script(src='config.js')
         script(type='text/javascript').
