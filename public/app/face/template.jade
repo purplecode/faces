@@ -1,8 +1,18 @@
-.row
-    .col-lg-10.col-lg-offset-1
-      .panel-body
-        .row.face
-          .left-panel.col-md-6
-              | Test {{faces}}
-          .right-panel.col-md-6
-              | Test
+.panel-body
+.row.face
+  .left-panel.col-md-4
+      md-list.md-default-theme(role="list")
+        h2.md-no-sticky.md-subheader.md-default-theme
+            .md-subheader-inner
+                span.md-subheader-content
+                    ng-pluralize(count="faces.length" when="{0 : 'no faces found', 1: 'one face found', 'other': '{} faces found'}")
+        md-list-item.md-3-line.md-no-proxy(ng-repeat="face in faces" role="listitem")
+            span.img-boundingbox
+                img(ng-src="images/faces/{{face.photos[0]}}")
+            .md-list-item-text
+                h3 {{face.forename}} {{face.surname}}
+                h4 {{face.title}}
+                p Maka Paka
+  .right-panel.col-md-8
+      face-details(face="selectedFace")
+      | {{faces}}

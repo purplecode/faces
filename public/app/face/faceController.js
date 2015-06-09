@@ -7,6 +7,10 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
 
   $scope.faces = [];
 
+  $scope.random = function(){
+    return Math.floor((Math.random()*3)+1);
+  }
+
   $scope.$watch('search', () => {
     let query = {
       $text: {
@@ -26,6 +30,7 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
 
     Faces.find(query, fields, sorting).then((faces) => {
       $scope.faces = faces;
+      $scope.selectedFace = faces[0];
     });
   });
 

@@ -11,7 +11,8 @@ quizModule.directive('nextQuestion', () => {
     scope: {
       isFinished: '=',
       action: '&',
-      timeout: '='
+      timeout: '=',
+      status: '='
     }
   };
   return ddo;

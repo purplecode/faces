@@ -11,6 +11,8 @@ export default servicesModule.factory('Faces', ($http) => {
         query: query,
         fields: fields,
         sorting: sorting
+      }).then((response) => {
+        return response.data;
       });
     },
 
