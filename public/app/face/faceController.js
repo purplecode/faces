@@ -7,9 +7,9 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
 
   $scope.faces = [];
 
-  $scope.random = function(){
-    return Math.floor((Math.random()*3)+1);
-  }
+  $scope.selectFace = (face) => {
+    $scope.selectedFace = face;
+  };
 
   $scope.$watch('search', () => {
     let query = {
