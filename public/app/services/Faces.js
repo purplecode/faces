@@ -5,17 +5,26 @@ import servicesModule from './module';
 export default servicesModule.factory('Faces', ($http) => {
 
   return {
-    getRandom: function() {
+
+    find: function (query, fields, sorting) {
+      return $http.post('faces/find', {
+        query: query,
+        fields: fields,
+        sorting: sorting
+      });
+    },
+
+    getRandom: function () {
       return $http.get('faces/random');
     },
 
-    checkName: function(face, mode, data) {
+    checkName: function (face, mode, data) {
       data._id = face._id;
       data.mode = mode;
       return $http.post('faces/check', data);
     },
 
-    getPopular: function() {
+    getPopular: function () {
       return $http.get('faces/popular');
     }
   };

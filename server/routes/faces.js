@@ -6,7 +6,7 @@ var getGuessMode = function(modeName) {
 };
 
 exports.all = function(req, res){
-  Faces.getAll().then(function(faces) {
+  Faces.find({}).then(function(faces) {
     res.send(faces);
   });
 };
@@ -44,5 +44,11 @@ exports.check = function(req, res){
     guessMode.guess(face, req.body, function(response){
       res.send(response);
     });
+  });
+};
+
+exports.find = function(req, res){
+  Faces.find(req.body.query || {}, req.body.fields || {}, req.body.sorting).then(function(faces) {
+    res.send(faces);
   });
 };

@@ -13,9 +13,9 @@ html
                     md-button(ui-sref='face') Search
                     span(flex)
                     .input-group
-                        input(type="text" class="form-control" placeholder="Search...")
+                        input(type="text" class="form-control" placeholder="Search..." ng-model="search" ng-enter="applySearch(search)")
                         .input-group-btn
-                            button.btn.btn-default
+                            button.btn.btn-default(ng-click="applySearch(search)")
                                 .glyphicon.glyphicon-search
             md-content
                 div.container(ui-view)

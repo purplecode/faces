@@ -21,9 +21,11 @@ db.faces.insert({ "forename" : "Igle", "surname" : "Pigle", "photos" : [  "igi-p
 db.faces.insert({ "forename" : "Pinky", "surname" : "Ponk", "photos" : [  "pinky-ponk.jpg" ]});
 db.faces.insert({ "forename" : "Ninky", "surname" : "Nonk", "photos" : [  "ninky-nonk.jpg" ]});
 db.faces.insert({ "forename" : "Pontipines", "surname" : "", "photos" : [  "pontipines.jpg" ]});
-db.faces.insert({ "forename" : "Wottingers", "surname" : "", "photos" : [  "wottingers.png" ]})
-db.faces.insert({ "forename" : "Tombliboos", "surname" : "", "photos" : [  "tombliboos.jpg" ]})
+db.faces.insert({ "forename" : "Wottingers", "surname" : "", "photos" : [  "wottingers.png" ]});
+db.faces.insert({ "forename" : "Tombliboos", "surname" : "", "photos" : [  "tombliboos.jpg" ]});
 db.faces.insert({ "forename" : "Upsy", "surname" : "Daisy", "photos" : [  "upsy-daisy.jpg" ]});
+
+db.faces.createIndex( { forename: "text", surname: "text" } )
 ```
 
 Run
