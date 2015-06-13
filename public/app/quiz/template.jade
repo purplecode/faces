@@ -16,6 +16,6 @@
         div(ng-show="guessMode=='inputName'")
           input-name-answer
 
-    face-info(face="face")
+    face-info(ng-show="isFinished" face="face")
 
     next-question.pull-right(is-finished="isFinished", action="next()" timeout="nextTimeout" status="status")

@@ -19,6 +19,7 @@ System.config({
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
     "angular-material": "github:angular/bower-material@0.9.4",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.14",
+    "angular-gravatar": "github:wallin/angular-gravatar@0.3.1",
     "babel": "npm:babel-core@5.2.17",
     "babel-runtime": "npm:babel-runtime@5.2.17",
     "bootstrap": "github:twbs/bootstrap@3.3.4",

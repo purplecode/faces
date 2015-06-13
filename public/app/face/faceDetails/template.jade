@@ -1,11 +1,28 @@
-h2 {{ face.forename }} {{ face.surname }}
 .img-boundingbox
-    img(ng-src="images/faces/{{face.photos[0]}}")
-h2 {{ face.title }}
-h3(ng-show='face.phoneNumber') Phone number: {{ face.phoneNumber }}
-p
-h4(ng-show='face.skills') Skills: {{ face.skills }}
-h4(ng-show='face.projects') Projects: {{ face.projects }}
-h4(ng-show='face.website')
-    a(ng-href='{{face.website}}') {{ face.website }}
-p(ng-show='face.about') About: {{face.about}}
+  img(ng-if="face.photos[0]" ng-src="images/faces/{{face.photos[0]}}")
+  img(ng-if="!face.photos[0]" gravatar-src="face.mail" gravatar-size="150")
+h2 {{ face.forename }} {{ face.surname }}
+h4 {{ face.title }}
+h4 {{ face.team }}
+table.table
+    tr
+        td Username
+        td {{ face.login }}
+    tr
+        td Employee ID
+        td {{ face.id }}
+    tr
+        td E-mail
+        td {{ face.mail }}
+    tr
+        td Phone
+        td {{ face.phone || '-' }}
+    tr
+        td Department
+        td {{ face.department }}
+    tr
+        td Address
+        td {{ face.city }}, {{ face.address }}
+    tr
+        td Manager
+        td {{ face.managerName }}

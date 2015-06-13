@@ -1,27 +1,13 @@
-.panel-body
-.row.face
-  .left-panel.col-md-4
-      ng-pluralize(count="faces.length" when="{0 : 'use search my friend', 1: 'one face found', 'other': '{} faces found'}")
-      md-button(ng-repeat="face in faces" role="listitem" ng-class="{'selected': face === selectedFace}" ng-click="selectFace(face)")
-          .img-boundingbox
-              img(ng-src="images/faces/{{face.photos[0]}}")
-          .text
-              h3 {{face.forename}} {{face.surname}}
-              h4 {{face.title}}
-              h4 {{ face.login }}
-
-      //md-list.md-default-theme(role="list")
-      //  h2.md-no-sticky.md-subheader.md-default-theme
-      //      .md-subheader-inner
-      //          span.md-subheader-content
-      //              ng-pluralize(count="faces.length" when="{0 : 'no faces found', 1: 'one face found', 'other': '{} faces found'}")
-      //  md-list-item.md-3-line.md-no-proxy(ng-repeat="face in faces" role="listitem" ng-class="{'selected': face === selectedFace}")
-      //      .img-boundingbox
-      //          img(ng-src="images/faces/{{face.photos[0]}}")
-      //      .md-list-item-text(ng-click="selectFace(face)")
-      //          h3 {{face.forename}} {{face.surname}}
-      //          h4 {{face.title}}
-      //          p {{ face.login }}
-  .right-panel.col-md-8
-      face-details(face="selectedFace")
-      | {{faces}}
+.face
+    .row(ng-show="faces.length > 0")
+        .left-panel.col-md-4
+            md-button.md-raised.md-button.md-default-theme(ng-repeat="face in faces" role="listitem" ng-class="{'md-primary': face === selectedFace}" ng-click="selectFace(face)")
+                .img-boundingbox
+                    img(ng-if="face.photos[0]" ng-src="images/faces/{{face.photos[0]}}")
+                    img(ng-if="!face.photos[0]" gravatar-src="face.mail" gravatar-size="50")
+                .text
+                    h3 {{face.forename}} {{face.surname}}
+                    h5 {{face.title}}
+                    h5 {{face.team}}
+        .right-panel.col-md-8
+            face-details(face="selectedFace")

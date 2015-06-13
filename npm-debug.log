@@ -10,7 +10,7 @@
 7 verbose unsafe-perm in lifecycle true
 8 info faces@1.0.0 Failed to exec start script
 9 error faces@1.0.0 start: `node ./server/www`
-9 error Exit status 1
+9 error Exit status 8
 10 error Failed at the faces@1.0.0 start script.
 10 error This is most likely a problem with the faces package,
 10 error not with npm itself.

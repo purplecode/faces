@@ -1,5 +1,5 @@
 div(ng-show='isFinished')
-    md-button.md-raised(ng-click='action()', focus-on='isFinished' ng-class="{'md-warn': status == 'wrong', 'md-primary': status != 'wrong'}")
+    md-button.md-raised(ng-click='action()', focus-on='isFinished' ng-class="{'md-warn': status == 'wrong', 'md-success': status == 'correct'}")
         | Next person
         span(ng-show='timeout > 0') ({{ timeout }})
         span.glyphicon.glyphicon-chevron-right

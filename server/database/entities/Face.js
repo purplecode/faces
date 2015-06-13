@@ -2,15 +2,21 @@ var mongoose = require('mongoose');
 
 var faceSchema = mongoose.Schema({
 	_id: mongoose.Schema.Types.ObjectId,
-    forename: String,
-    surname: String,
-    photos: Array,
-    title: String,
-    phoneNumber: String,
-    skills: String,
-    projects: String,
-    website: String,
-    about: String
+  "id": String,
+  "login": String,
+  "city": String,
+  "address": String,
+  "forename": String,
+  "surname": String,
+  "fullname": String,
+  "mail": String,
+  "team": String,
+  "department": String,
+  "managerName": String,
+  "managerLogin": String,
+  "title": String,
+  "phone": String,
+  "photos": Array
 });
 
 module.exports = mongoose.model('Face', faceSchema);

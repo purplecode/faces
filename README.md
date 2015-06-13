@@ -25,7 +25,14 @@ db.faces.insert({ "forename" : "Wottingers", "surname" : "", "photos" : [  "wott
 db.faces.insert({ "forename" : "Tombliboos", "surname" : "", "photos" : [  "tombliboos.jpg" ]});
 db.faces.insert({ "forename" : "Upsy", "surname" : "Daisy", "photos" : [  "upsy-daisy.jpg" ]});
 
-db.faces.createIndex( { forename: "text", surname: "text" } )
+db.faces.createIndex({
+  forename: "text",
+  surname: "text",
+  "login": "text",
+  "mail": "text",
+  "team": "text",
+  "title": "text"
+});
 ```
 
 Run
