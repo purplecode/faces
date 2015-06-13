@@ -1,5 +1,5 @@
 .choosePhoto
-    button.btn.btn-info(ng-show='!isFinished' ng-repeat='face in choosePhotoOptions track by $index', ng-click='submit($event, face._id)')
+    md-button.md-raised.md-primary(ng-show='!isFinished' ng-repeat='face in choosePhotoOptions track by $index', ng-click='submit($event, face._id)')
         img(ng-src='{{ face.photo }}')
-    button.btn.finished(ng-show='isFinished', ng-class="{'btn-danger': status == 'wrong','btn-success': status == 'correct'}")
+    md-button.md-raised.finished(ng-show='isFinished', ng-class="{'md-warn': status == 'wrong','md-success': status == 'correct'}")
         img(ng-src='{{ faceImg }}')
