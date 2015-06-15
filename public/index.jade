@@ -17,6 +17,14 @@ html
                         .input-group-btn
                             button.btn.btn-default(ng-click="applySearch(search)")
                                 .glyphicon.glyphicon-search
+            md-fab-toolbar.md-left(md-open='isOpen', count='count')
+                md-fab-trigger.align-with-text
+                    md-button.md-fab.md-primary(aria-label='menu')
+                        md-icon(md-svg-src='images/icons/ic_tune_white_24px.svg')
+                md-toolbar
+                    md-fab-actions.md-toolbar-tools
+                        .md-fab-action-item(ng-repeat="city in cities | orderBy:'-name'")
+                            md-switch.md-primary(ng-model="city.selected" aria-label="city.name" md-no-ink="false") {{ city.name }}
             md-content
                 div.container(ui-view)
         script(src='jspm_packages/system.js')

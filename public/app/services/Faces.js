@@ -16,6 +16,12 @@ export default servicesModule.factory('Faces', ($http) => {
       });
     },
 
+    getDistinct: function (fieldname) {
+      return $http.get('faces/distinct/' + fieldname).then((response) => {
+        return response.data;
+      });
+    },
+
     getRandom: function () {
       return $http.get('faces/random');
     },

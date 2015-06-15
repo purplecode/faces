@@ -41,6 +41,11 @@ Faces.find = function (query, fields, sorting) {
   return find.exec();
 };
 
+Faces.distinct = function (field) {
+  return q.denodeify(Face.collection.distinct.bind(Face.collection))(field);
+};
+
+
 Faces.getRandomPhotoPath = function (face) {
   return 'public/images/faces/' + face.photos[Math.floor(Math.random() * face.photos.length)];
 };

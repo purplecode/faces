@@ -52,3 +52,9 @@ exports.find = function(req, res){
     res.send(faces);
   });
 };
+
+exports.distinct = function(req, res){
+  Faces.distinct(req.params.field).then(function(values) {
+    res.send(values);
+  });
+};
