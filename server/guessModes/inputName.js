@@ -4,7 +4,7 @@ var _ = require('lodash');
 var Logs = require('../database/Logs');
 var stringUtils = require('../utils/StringUtils');
 
-exports.questionData = function(face, callback) {
+exports.questionData = function(face, query, callback) {
   callback('inputName', _.omit(face.toObject(), 'forename', 'surname', 'photos'));
 };
 

@@ -1,4 +1,9 @@
 .face
+    .row
+        md-whiteframe.md-whiteframe-z3.info(layout layout-align="center center" ng-show="faces.length == 0 && !search")
+            span Use the search, Luke!
+        md-whiteframe.md-whiteframe-z3.info(layout layout-align="center center" ng-show="faces.length == 0 && search")
+            span Sorry dude, no results.
     .row(ng-show="faces.length > 0")
         .left-panel.col-md-4
             md-button.md-raised.md-button.md-default-theme(ng-repeat="face in faces" role="listitem" ng-class="{'md-primary': face === selectedFace}" ng-click="selectFace(face)")

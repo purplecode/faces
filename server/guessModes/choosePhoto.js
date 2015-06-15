@@ -8,8 +8,8 @@ var hashId = function (id) {
   return crypto.createHash('md5').update("Moja sul jest moja." + id + ".pieprzu troche tez. Kardamon i pieprz.").digest("hex");
 };
 
-exports.questionData = function (originalFace, callback) {
-  return Faces.getRandom(3).then(function (additional) {
+exports.questionData = function (originalFace, query, callback) {
+  return Faces.getRandom(3, query).then(function (additional) {
     var faces = [originalFace].concat(additional);
     var promises = faces.map(function (face) {
       return FileUtils.getImgBase64(Faces.getRandomPhotoPath(face));

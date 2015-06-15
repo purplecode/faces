@@ -21,11 +21,13 @@ exports.random = function(req, res){
 
   var guessMode = getGuessMode(modes[random(modes.length)]);
 
-  Faces.getRandom(1).done(function(documents) {
+  var query = req.body;
+
+  Faces.getRandom(1, query).done(function(documents) {
     var face = documents[0];
     var randomPhoto = Faces.getRandomPhotoPath(face);
     FileUtils.getImgBase64(randomPhoto).then(function(img64) {
-      guessMode.questionData(face, function(mode, faceData, extraData){
+      guessMode.questionData(face, query, function(mode, faceData, extraData){
         res.send({
           _id: face._id,
           photo: img64,

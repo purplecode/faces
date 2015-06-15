@@ -33,7 +33,7 @@ var facesRoutes = require('./server/routes/faces');
 var statsRoutes = require('./server/routes/stats')
 
 app.get('/faces/all', facesRoutes.all);
-app.get('/faces/random', facesRoutes.random);
+app.post('/faces/random', facesRoutes.random);
 app.post('/faces/check', facesRoutes.check);
 app.post('/faces/find', facesRoutes.find);
 app.get('/faces/distinct/:field', facesRoutes.distinct);

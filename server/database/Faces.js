@@ -4,8 +4,9 @@ var ObjectID = require('mongodb').ObjectID;
 var _ = require('lodash');
 
 
-var getRandomFace = function () {
-  var query = {'photos.0' : {'$exists' : true}};
+var getRandomFace = function (query) {
+  query = query || {};
+  query['photos.0'] = {'$exists' : true};
   var count = q.denodeify(Face.count.bind(Face));
   return count(query).then(function (countOfDocuments) {
     if (!countOfDocuments) {
@@ -20,9 +21,9 @@ var getRandomFace = function () {
 
 var Faces = {};
 
-Faces.getRandom = function (howMany) {
+Faces.getRandom = function (howMany, query) {
   var promises = _.times(howMany || 1, function () {
-    return getRandomFace()
+    return getRandomFace(query)
   });
   return q.all(promises);
 };

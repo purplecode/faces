@@ -2,10 +2,10 @@
 import appModule from './appModule';
 import './styles.css!';
 
-appModule.controller('appController', function($scope, $state, $sessionStorage, Faces){
+appModule.controller('appController', function ($scope, $state, $sessionStorage, Faces) {
 
   $scope.applySearch = (search) => {
-      $state.go('face');
+    $state.go('face');
   };
 
   $sessionStorage['cities'] = $sessionStorage['cities'] || {};
@@ -16,9 +16,10 @@ appModule.controller('appController', function($scope, $state, $sessionStorage, 
     $scope.cities = cities.map((city) => {
       let cityName = city.toLowerCase();
       $scope.storage[cityName] = $scope.storage[cityName] || {
-        name: cityName.charAt(0).toUpperCase() + cityName.slice(1),
-        selected: true
-      };
+          name: cityName.charAt(0).toUpperCase() + cityName.slice(1),
+          originalName: city,
+          selected: true
+        };
       return $scope.storage[cityName];
     });
   });

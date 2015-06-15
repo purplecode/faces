@@ -22,8 +22,8 @@ export default servicesModule.factory('Faces', ($http) => {
       });
     },
 
-    getRandom: function () {
-      return $http.get('faces/random');
+    getRandom: function (query={}) {
+      return $http.post('faces/random', query);
     },
 
     checkName: function (face, mode, data) {
