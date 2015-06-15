@@ -12,10 +12,20 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
   };
 
   $scope.$watch('search', () => {
-    let query = {
+    let query1 = {
       $text: {
         $search: $scope.search
       }
+    };
+
+    let query2 = {
+      $or : [
+        {login: {$regex : $scope.search}},
+        {surname: {$regex : $scope.search}},
+        {fullname: {$regex : $scope.search}},
+        {mail: {$regex : $scope.search}},
+        {title: {$regex : $scope.search}}
+      ]
     };
 
     let fields = {
@@ -28,9 +38,16 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
       score: { $meta: "textScore" }
     };
 
-    Faces.find(query, fields, sorting).then((faces) => {
-      $scope.faces = faces;
-      $scope.selectedFace = faces[0];
+    Faces.find(query1, fields, sorting).then((faces) => {
+      if(!faces || faces.length == 0) {
+        Faces.find(query2, fields, sorting).then((faces) => {
+          $scope.faces = faces;
+          $scope.selectedFace = faces[0];
+        });
+      } else {
+        $scope.faces = faces;
+        $scope.selectedFace = faces[0];
+      }
     });
   });
 
