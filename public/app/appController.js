@@ -5,7 +5,9 @@ import './styles.css!';
 appModule.controller('appController', function ($scope, $state, $sessionStorage, Faces) {
 
   $scope.applySearch = (search) => {
-    $state.go('face');
+    if (search.length >= 3) {
+      $state.go('face');
+    }
   };
 
   $sessionStorage['cities'] = $sessionStorage['cities'] || {};

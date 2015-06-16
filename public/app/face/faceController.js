@@ -12,6 +12,9 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
   };
 
   $scope.$watch('search', () => {
+
+    if($scope.search && $scope.search.length < 3) return;
+
     let query1 = {
       $text: {
         $search: $scope.search
