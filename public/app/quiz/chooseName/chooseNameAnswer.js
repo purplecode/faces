@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import 'angular-bootstrap';
 import quizModule from '../module';
-import template from './answer.html!text';
+import template from './answer.jade!';
 
 quizModule.directive('chooseNameAnswer', () => {
 

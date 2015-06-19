@@ -3,7 +3,7 @@ html
     head
         title Faces
         link(rel="stylesheet" href="./jspm_packages/github/twbs/bootstrap@3.3.4/css/bootstrap.min.css")
-        link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@0.9.4/angular-material.css")
+        link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@0.10.0/angular-material.css")
         link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
     body(ng-controller="appController" layout="row" keypress-bindings)
         div(layout="column" layout-fill)
@@ -28,7 +28,13 @@ html
                             md-switch.md-primary(ng-model="city.selected" aria-label="city.name" md-no-ink="false") {{ city.name }}
             md-content
                 div.container(ui-view)
-        script(src='jspm_packages/system.js')
-        script(src='config.js')
-        script(type='text/javascript').
-            System.import('app/app').catch(console.error.bind(console));
+        a.footer(href="https://github.com/purplecode/faces")
+            span mjaworsk
+            ng-md-icon(icon="github-circle" size="20")
+        if isProduction
+            script(src="app-prod.js")
+        else
+            script(src='jspm_packages/system.js')
+            script(src='config.js')
+            script(type='text/javascript').
+                System.import('app/app').catch(console.error.bind(console));

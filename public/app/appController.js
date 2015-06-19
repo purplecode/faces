@@ -2,17 +2,15 @@
 import appModule from './appModule';
 import './styles.css!';
 
-appModule.controller('appController', function ($scope, $state, $sessionStorage, Faces) {
+appModule.controller('appController', function ($scope, $state, $localStorage, Faces) {
 
   $scope.applySearch = (search) => {
-    if (search.length >= 3) {
-      $state.go('face');
-    }
+    $state.go('face');
   };
 
-  $sessionStorage['cities'] = $sessionStorage['cities'] || {};
+  $localStorage['cities'] = $localStorage['cities'] || {};
 
-  $scope.storage = $sessionStorage['cities'];
+  $scope.storage = $localStorage['cities'];
 
   Faces.getDistinct('city').then((cities) => {
     $scope.cities = cities.map((city) => {

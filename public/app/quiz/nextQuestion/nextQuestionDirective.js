@@ -1,7 +1,7 @@
 "use strict";
 import _ from 'lodash';
 import quizModule from '../module';
-import template from './template.html!text';
+import template from './template.jade!';
 
 quizModule.directive('nextQuestion', () => {
 
