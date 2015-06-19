@@ -44,7 +44,7 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
     // TODO there is mongo 2.4.3 on production server :/
     //Faces.find(query1, fields, sorting).then((faces) => {
     //  if(!faces || faces.length == 0) {
-        Faces.find(query2, fields).then((faces) => {
+        Faces.find(query2).then((faces) => {
           $scope.faces = faces;
           $scope.selectedFace = faces[0];
         });
