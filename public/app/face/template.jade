@@ -2,7 +2,7 @@
     .row
         md-whiteframe.md-whiteframe-z3.info(ng-show="faces.length == 0" layout layout-align="center center")
             span(ng-show="!search") Use the search, Luke!
-            span(ng-show="search.length < 3") Provide at least 3 characters.
+            span(ng-show="search && search.length < 3") Provide at least 3 characters.
             span(ng-show="search.length >= 3") Sorry dude, no results.
     .row(ng-show="faces.length > 0")
         .left-panel.col-md-4

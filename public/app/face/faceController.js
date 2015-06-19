@@ -41,17 +41,18 @@ faceModule.controller('faceController', ($scope, $timeout, Faces) => {
       score: { $meta: "textScore" }
     };
 
-    Faces.find(query1, fields, sorting).then((faces) => {
-      if(!faces || faces.length == 0) {
+    // TODO there is mongo 2.4.3 on production server :/
+    //Faces.find(query1, fields, sorting).then((faces) => {
+    //  if(!faces || faces.length == 0) {
         Faces.find(query2, fields, sorting).then((faces) => {
           $scope.faces = faces;
           $scope.selectedFace = faces[0];
         });
-      } else {
-        $scope.faces = faces;
-        $scope.selectedFace = faces[0];
-      }
-    });
+    //  } else {
+    //    $scope.faces = faces;
+    //    $scope.selectedFace = faces[0];
+    //  }
+    //});
   });
 
 });
