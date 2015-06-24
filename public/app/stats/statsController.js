@@ -10,18 +10,19 @@ statsModule.controller('statsController', ($scope, Faces) => {
       data: {
         "cols": [
           {id: "t", label: "Name", type: "string"},
-          {id: "s", label: "#wrong answers", type: "number"},
+          //{id: "s", label: "#wrong answers", type: "number"},
           {id: "s", label: "#correct answers", type: "number"}
         ],
         "rows": _.map(result, (entry) => {
-          return {c:[{v:entry.face.fullname}, {v:entry.counts.wrong}, {v:entry.counts.correct}]}
+          return {c:[{v:entry.face.fullname}, /*{v:entry.counts.wrong},*/ {v:entry.counts.correct}]}
         })
       },
       type: 'ColumnChart',
       options: {
         'title': 'Top most recognizable faces',
         "isStacked": "true",
-        colors: ['#F44336', '#449D44']
+        //colors: ['#F44336', '#449D44']
+        colors: ['#3F51B5']
       }
     }
   });
