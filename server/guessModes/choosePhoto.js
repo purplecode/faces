@@ -1,8 +1,9 @@
 var _ = require('lodash');
 var Faces = require('../database/Faces');
 var FileUtils = require('../utils/FileUtils');
-var crypto = require('crypto');
+var Logs = require('../database/Logs');
 var q = require('q');
+var crypto = require('crypto');
 
 var hashId = function (id) {
   return crypto.createHash('md5').update("Moja sul jest moja." + id + ".pieprzu troche tez. Kardamon i pieprz.").digest("hex");
@@ -27,15 +28,10 @@ exports.questionData = function (originalFace, query, callback) {
 };
 
 exports.guess = function (face, input, callback) {
-  if (hashId(face._id) === input.answer) {
-    callback({
-      status: 'correct',
-      face: face
-    });
-  } else {
-    callback({
-      status: 'wrong',
-      face: face
-    });
-  }
+  var isOk = hashId(face._id) === input.answer;
+  Logs.log(face._id, input.answer, isOk);
+  callback({
+    status: isOk ? 'correct' : 'wrong',
+    face: face
+  });
 };
