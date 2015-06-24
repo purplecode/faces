@@ -4,6 +4,7 @@ import './appController';
 
 import quizTemplate from './quiz/template.jade!';
 import faceTemplate from './face/template.jade!';
+import statsTemplate from './stats/template.jade!';
 
 appModule.config(($stateProvider, $urlRouterProvider) => {
 
@@ -17,6 +18,12 @@ appModule.config(($stateProvider, $urlRouterProvider) => {
     url: '/face',
     template: faceTemplate,
     controller: 'faceController'
+  });
+
+  $stateProvider.state('stats', {
+    url: '/stats',
+    template: statsTemplate,
+    controller: 'statsController'
   });
 
   $urlRouterProvider.otherwise('/quiz');

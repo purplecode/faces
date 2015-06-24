@@ -22,21 +22,33 @@ exports.findMostFrequentCorrectAnswers = function (startDate, limit, callback) {
       $match: {
         date: {
           $gte: startDate
+        }
+      }
+    }, {
+      $project: {
+        faceId: 1,
+        countCorrect: {
+          $cond: ["$isOk", 1, 0]
         },
-        isOk: true
+        countWrong: {
+          $cond: ["$isOk", 0, 1]
+        }
       }
     },
     {
       $group: {
         _id: '$faceId',
-        count: {
-          $sum: 1
+        countCorrect: {
+          $sum: "$countCorrect"
+        },
+        countWrong: {
+          $sum: "$countWrong"
         }
       }
     },
     {
       $sort: {
-        'count': -1
+        'countCorrect': -1
       }
     },
     {

@@ -17,6 +17,7 @@ System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.4.1",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
+    "angular-google-chart": "npm:angular-google-chart@0.0.11",
     "angular-gravatar": "github:wallin/angular-gravatar@0.3.1",
     "angular-material": "github:angular/bower-material@0.10.0",
     "angular-material-icons": "npm:angular-material-icons@0.5.0",
@@ -122,11 +123,6 @@ System.config({
     "github:jspm/nodelibs-zlib@0.1.0": {
       "browserify-zlib": "npm:browserify-zlib@0.1.4"
     },
-    "github:systemjs/plugin-css@0.1.12": {
-      "clean-css": "npm:clean-css@3.1.9",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "path": "github:jspm/nodelibs-path@0.1.0"
-    },
     "github:systemjs/plugin-css@0.1.6": {
       "clean-css": "npm:clean-css@3.0.10",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -150,10 +146,13 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:angular-material-icons@0.5.0": {
-      "angular": "npm:angular@1.4.1"
+    "npm:angular-google-chart@0.0.11": {
+      "angular": "npm:angular@1.2.28"
     },
-    "npm:angular@1.4.1": {
+    "npm:angular-material-icons@0.5.0": {
+      "angular": "npm:angular@1.2.28"
+    },
+    "npm:angular@1.2.28": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:argparse@0.1.16": {
@@ -247,19 +246,6 @@ System.config({
     "npm:clean-css@3.0.10": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.5.1",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "http": "github:jspm/nodelibs-http@1.7.1",
-      "https": "github:jspm/nodelibs-https@0.1.0",
-      "os": "github:jspm/nodelibs-os@0.1.0",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "source-map": "npm:source-map@0.1.43",
-      "url": "github:jspm/nodelibs-url@0.1.0",
-      "util": "github:jspm/nodelibs-util@0.1.0"
-    },
-    "npm:clean-css@3.1.9": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "commander": "npm:commander@2.6.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "http": "github:jspm/nodelibs-http@1.7.1",
       "https": "github:jspm/nodelibs-https@0.1.0",

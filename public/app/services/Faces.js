@@ -33,7 +33,9 @@ export default servicesModule.factory('Faces', ($http) => {
     },
 
     getPopular: function () {
-      return $http.get('faces/popular');
+      return $http.get('faces/popular').then((response) => {
+        return response.data;
+      });
     }
   };
 });
