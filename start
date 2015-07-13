@@ -1,0 +1,2 @@
+#!/bin/sh
+PORT=3001 /opt/node/bin/forever -l /home/devcommons/logs/faces.log -a start server/www
