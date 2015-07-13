@@ -8,37 +8,38 @@ var jadeMiddleware = require('./server/utils/jadeMiddleware')
 
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/faces', express.static(path.join(__dirname, 'public')));
 app.use(jadeMiddleware)
 
-/////////////////////// TODO refactor
 var database = require('./server/database/Database.js');
 database.connect('faces');
 
 var routes = require('./server/routes/index');
-app.use('/', routes);
-
 var facesRoutes = require('./server/routes/faces');
 var statsRoutes = require('./server/routes/stats')
 
-app.get('/faces/all', facesRoutes.all);
-app.post('/faces/random', facesRoutes.random);
-app.post('/faces/check', facesRoutes.check);
-app.post('/faces/find', facesRoutes.find);
-app.get('/faces/distinct/:field', facesRoutes.distinct);
-app.get('/faces/popular', statsRoutes.getMostRecognizable);
-///////////////////////
+var router = express.Router();
+router.use('/', routes);
+router.get('/faces/all', facesRoutes.all);
+router.post('/faces/random', facesRoutes.random);
+router.post('/faces/check', facesRoutes.check);
+router.post('/faces/find', facesRoutes.find);
+router.get('/faces/distinct/:field', facesRoutes.distinct);
+router.get('/faces/popular', statsRoutes.getMostRecognizable);
+
+app.use('/faces', router);
+
+app.get('/', function(req, res) {
+  res.redirect('/faces');
+});
 
 
 module.exports = app;

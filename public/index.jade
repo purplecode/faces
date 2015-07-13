@@ -6,6 +6,11 @@ html
         link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@0.10.0/angular-material.css")
         link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
     body(ng-controller="appController" layout="row" keypress-bindings)
+        <!--[if IE]>
+        .alert.alert-danger
+            .text-center Please note that Faces does not support Internet Explorer.
+            .text-center We recommend using the latest Google Chrome or Firefox.
+        <![endif]-->
         div(layout="column" layout-fill)
             md-toolbar
                 .md-toolbar-tools
@@ -33,7 +38,7 @@ html
             span mjaworsk
             ng-md-icon(icon="github-circle" size="20")
         if isProduction
-            script(src="app-prod.js")
+            script(src="faces/app-prod.js")
         else
             script(src='jspm_packages/system.js')
             script(src='config.js')

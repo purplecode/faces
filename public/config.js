@@ -1,5 +1,5 @@
 System.config({
-  "baseURL": "/",
+  "baseURL": "/faces",
   "transpiler": "babel",
   "babelOptions": {
     "optional": [
