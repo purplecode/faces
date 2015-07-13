@@ -3,3 +3,4 @@ node_modules
 public/jspm_packages
 public/bower_components
 public/images/faces
+public/dist
