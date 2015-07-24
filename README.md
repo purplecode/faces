@@ -13,32 +13,21 @@ Prerequisites:
 * node.js
 * mongodb
 
-Add the following sample data to `faces` database (can be changed in `app.js`)
+Run demo (creates `faces` database in mongodb)
 
 ```
-db.faces.insert({ "forename" : "Maka", "surname" : "Paka", "photos" : [  "maka-paka.jpg" ]});
-db.faces.insert({ "forename" : "Igle", "surname" : "Pigle", "photos" : [  "igi-pigiel.jpg" ]});
-db.faces.insert({ "forename" : "Pinky", "surname" : "Ponk", "photos" : [  "pinky-ponk.jpg" ]});
-db.faces.insert({ "forename" : "Ninky", "surname" : "Nonk", "photos" : [  "ninky-nonk.jpg" ]});
-db.faces.insert({ "forename" : "Pontipines", "surname" : "", "photos" : [  "pontipines.jpg" ]});
-db.faces.insert({ "forename" : "Wottingers", "surname" : "", "photos" : [  "wottingers.png" ]});
-db.faces.insert({ "forename" : "Tombliboos", "surname" : "", "photos" : [  "tombliboos.jpg" ]});
-db.faces.insert({ "forename" : "Upsy", "surname" : "Daisy", "photos" : [  "upsy-daisy.jpg" ]});
-
-db.faces.createIndex({
-  forename: "text",
-  surname: "text",
-  "login": "text",
-  "mail": "text",
-  "team": "text",
-  "title": "text"
-});
+jspm install
+gulp less
+demo.sh
 ```
 
-Run
+Run bundled production version:
 
 ```
-node app.js
+jspm install
+gulp less
+gulp createBundle
+PORT=3000 forever server/www
 ```
 
 Open `http://localhost:3000` in your browser.
@@ -47,11 +36,11 @@ Enjoy!
 
 ## Screenshots
 
-![](https://raw.github.com/purplecode/faces/master/doc/input.jpg)
+![](https://raw.github.com/purplecode/faces/master/demo/screen1.png)
 **************************
-![](https://raw.github.com/purplecode/faces/master/doc/texts.jpg)
+![](https://raw.github.com/purplecode/faces/master/demo/screen2.png)
 **************************
-![](https://raw.github.com/purplecode/faces/master/doc/pictures.jpg)
+![](https://raw.github.com/purplecode/faces/master/demo/screen3.png)
 **************************
 
 

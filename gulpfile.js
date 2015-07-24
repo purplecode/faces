@@ -22,7 +22,7 @@ gulp.task('less:watch', ['less'], function () {
   gulp.watch([sources.less], ['less']);
 });
 
-gulp.task('createBundle', 'create jspm bundle-sfx', ['less'],
+gulp.task('createBundle', ['less'],
     gulpPlugins.shell.task([
       'jspm bundle-sfx app/app public/app-prod.js'
     ])

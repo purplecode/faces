@@ -4,3 +4,8 @@ public/jspm_packages
 public/bower_components
 public/images/faces
 public/dist
+./start
+
+*.css
+app-prod.js
+app-prod.js.map
