@@ -1,4 +1,5 @@
 .idea
+*.sublime-project
 node_modules
 public/jspm_packages
 public/bower_components

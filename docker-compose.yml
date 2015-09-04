@@ -1,0 +1,12 @@
+app:
+  image: node:latest
+  working_dir: /app
+  command: ./demo-docker.sh
+  volumes:
+    - .:/app
+  ports:
+    - "3000:3000"
+  links:
+    - db
+db:
+  image: mongo:latest
