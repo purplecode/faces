@@ -21,6 +21,12 @@ gulp less
 demo.sh
 ```
 
+Run demo using docker
+
+```
+docker-compose up
+```
+
 Run bundled production version:
 
 ```
