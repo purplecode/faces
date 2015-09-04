@@ -24,6 +24,7 @@ demo.sh
 Run demo using docker
 
 ```
+jspm install
 docker-compose up
 ```
 
