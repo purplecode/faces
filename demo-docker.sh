@@ -15,9 +15,9 @@ cp demo/faces/*.jpg public/images/faces/
 
 # install dependencies
 npm install -g gulp
-# unfortunatelly jspm requires github authentication for getting the libraries :/
-#npm install -g jspm
-#jspm install
+# it couses 'GitHub rate limit reached. To increase the limit use GitHub authentication' - moved to host
+# npm install -g jspm
+# jspm install
 gulp less
 
 # run server
